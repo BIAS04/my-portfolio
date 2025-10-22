@@ -196,14 +196,16 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Theme Toggle Hover - Light background on hover */
 .theme-toggle:hover {
-    background-color: var(--gray-100);
+    background: transparent;
+    /* background: var(--gray-100); */
 }
 
 /* Theme Icons - Absolute positioned icons with opacity transitions */
 .theme-icon {
     position: absolute;                           /* Absolute positioning */
     top: 50%;                                     /* Vertical centering */
-    left: 50%;                                    /* Horizontal centering */
+    left: 50%;                                    /* Horizontal centering */  
+    background: transparent;                      /* Transparent background */          
     transform: translate(-50%, -50%);             /* Perfect centering */
     font-size: 1.25rem;                          /* Appropriate icon size */
     transition: opacity 0.3s ease, color 0.2s ease;  /* Smooth transitions */
@@ -220,10 +222,11 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0;
 }
 
-/* Dark Theme Toggle Hover - Dark background for contrast */
+/* Dark Theme Toggle Hover - Dark background for contrast 
 [data-theme="dark"] .theme-toggle:hover {
-    background-color: var(--gray-800);            /* Dark hover background */
-}
+    background-color: var(--gray-800);             // Dark hover background 
+} 
+*/
 
 /* Dark Theme - Sun icon hidden */
 [data-theme="dark"] .theme-icon.sun {
@@ -1294,6 +1297,16 @@ section {
         padding: calc(var(--spacing-base) * 4) 0;  /* Vertical padding */
         z-index: 999;                         /* Above other content */
         transition: all 0.3s ease;             /* Smooth transition */
+    }
+
+    .nav-links.active::after{
+        content: '';                           /* Empty pseudo-element */
+        position: absolute;                    /* Absolute positioning */
+        top: 0;                                /* Top of nav */
+        left: 0;                               /* Left edge */
+        width: 100%;                           /* Full width */
+        height: 100%;                          /* Full height */
+        z-index: -1;                          /* Behind nav links */
     }
     /* Navigation - Hide desktop nav, show mobile menu */
     .nav-links {
