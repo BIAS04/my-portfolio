@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Alex Chen ML Portfolio</title>
+    <meta name="description" content="Get in touch with Alex Chen for machine learning consulting, collaboration, or career opportunities.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="Main_INDEX.HTML"><span style="color:  hsl(220, 90%, 56%);;"> मयंक </span>सिंह परिहार</a>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="projects.html" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link active">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1 class="page-title">Let's Work Together</h1>
+            <p class="page-subtitle">
+                Interested in collaborating on ML projects, discussing opportunities, or just want to chat about AI? 
+                I'd love to hear from you!
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p>
+                        Whether you're looking for ML consulting, have a project idea, or want to discuss 
+                        career opportunities, I'm always open to interesting conversations.
+                    </p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-details">
+                                <h3>Email</h3>
+                                <a href="officialmayankparihar0@gmail.com">officialmayankparihar0@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">💼</div>
+                            <div class="contact-details">
+                                <h3>LinkedIn</h3>
+                                <a href="https://www.linkedin.com/in/mayank-singh-parihar-192168271/" target="_blank" rel="noopener">https://www.linkedin.com/in/mayank-singh-parihar-192168271/</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">🐙</div>
+                            <div class="contact-details">
+                                <h3>GitHub</h3>
+                                <a href="https://github.com/BIAS04" target="_blank" rel="noopener">github.com/BIAS04</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-details">
+                                <h3>Location</h3>
+                                <span>Bhilai Chhattishgarh</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resume-download">
+                        <a href="assets/Alex_Chen_Resume.pdf" download class="btn btn-outline">
+                            📄 Download Resume
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contact-form">
+                        <h2>Send a Message</h2>
+                        
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                            <span class="error-message" id="name-error"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-message" id="email-error"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Company/Organization</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="collaboration">Project Collaboration</option>
+                                <option value="consulting">ML Consulting</option>
+                                <option value="job">Job Opportunity</option>
+                                <option value="speaking">Speaking Engagement</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <span class="error-message" id="subject-error"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Tell me about your project, opportunity, or what you'd like to discuss..."></textarea>
+                            <span class="error-message" id="message-error"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <span class="checkmark"></span>
+                                Subscribe to my newsletter for ML insights and project updates
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" id="submit-btn">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loading" style="display: none;">Sending...</span>
+                        </button>
+                        
+                        <div class="form-success" id="form-success" style="display: none;">
+                            <div class="success-icon">✅</div>
+                            <h3>Message Sent!</h3>
+                            <p>Thank you for reaching out. I'll get back to you within 24 hours.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>What types of ML projects do you work on?</h3>
+                    <p>I specialize in Computer Vision, NLP, and Deep Learning projects. From proof-of-concept to production deployment, I help businesses leverage AI to solve real-world problems.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Do you offer consulting services?</h3>
+                    <p>Yes! I provide ML consulting for strategy, architecture design, model development, and deployment. I work with startups and enterprises to build scalable AI solutions.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Are you available for speaking engagements?</h3>
+                    <p>Absolutely! I enjoy sharing knowledge about ML best practices, latest research, and industry trends. I've spoken at conferences, meetups, and corporate events.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What's your typical project timeline?</h3>
+                    <p>Project timelines vary based on complexity. A typical ML project ranges from 2-6 months, including data analysis, model development, testing, and deployment phases.</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><span style="color:  hsl(220, 90%, 56%);;"> मयंक </span>सिंह परिहार</h3>
+                    <p>Machine Learning Engineer passionate about building intelligent systems that solve real-world problems.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://github.com/BIAS04" target="_blank" rel="noopener">GitHub</a>
+                        <a href="https://www.linkedin.com/in/mayank-singh-parihar-192168271/" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="officialmayankparihar0@gmail.com">Email</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mayank Singh Parihar. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

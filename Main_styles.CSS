@@ -1,0 +1,1362 @@
+/* ========================================
+   AI/ML PORTFOLIO WEBSITE - STYLESHEET
+   ========================================
+   
+   This stylesheet powers a modern, responsive portfolio website
+   for Mayank Singh Parihar - AI/ML Enthusiast and B.Tech Student.
+   
+   Features:
+   - Dark/Light theme toggle with localStorage persistence
+   - Responsive design with mobile-first approach
+   - Modern CSS Grid and Flexbox layouts
+   - Smooth animations and scroll effects
+   - Professional color scheme with CSS custom properties
+   - Accessibility-focused design patterns
+   
+   Author: Mayank Singh Parihar
+   Project: Personal AI/ML Portfolio
+   ======================================== */
+
+/* CSS Reset and Base Styles */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  
+}
+
+/* Skills and Interests Grid Layout - Forces 2x3 layout for better visual balance */
+.skills-grid,
+.interests-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-rows: repeat(2, auto) !important;
+    gap: calc(var(--spacing-base) * 6) !important;
+}
+
+/* Responsive Grid Behavior - Single column layout on mobile devices */
+@media (max-width: 768px) {
+    .skills-grid,
+    .interests-grid {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: none !important;
+    }
+}
+/* CSS Custom Properties - Design System Variables */
+:root {
+    /* Brand Colors - Professional blue and gold accent */
+    --primary: hsl(220, 90%, 56%);      /* Primary blue for highlights and CTAs */
+    --secondary: hsl(0, 0%, 0%);        /* Pure black for primary buttons */
+    --background: hsl(0, 0%, 100%);     /* Pure white background */
+    --text: hsl(0, 0%, 0%);            /* Pure black text */
+    --accent: hsl(45, 100%, 70%);       /* Golden yellow for status badges */
+    
+    /* Gray Scale - Comprehensive neutral palette */
+    --gray-50: hsl(0, 0%, 97%);        /* Lightest gray for subtle backgrounds */
+    --gray-100: hsl(0, 0%, 95%);       /* Light gray for card backgrounds */
+    --gray-200: hsl(0, 0%, 90%);       /* Border colors */
+    --gray-300: hsl(0, 0%, 83%);       /* Input borders */
+    --gray-400: hsl(0, 0%, 64%);       /* Secondary text */
+    --gray-500: hsl(0, 0%, 45%);       /* Muted text */
+    --gray-600: hsl(0, 0%, 32%);       /* Body text secondary */
+    --gray-700: hsl(0, 0%, 26%);       /* Dark text */
+    --gray-800: hsl(0, 0%, 15%);       /* Very dark text */
+    --gray-900: hsl(0, 0%, 9%);        /* Darkest text */
+    
+    /* Spacing and Layout */
+    --spacing-base: 0.25rem;           /* Base unit for consistent spacing (4px) */
+    --border-radius: 0.5rem;           /* Standard border radius for components */
+}
+
+/* Dark Theme Override - Inverted color scheme for dark mode */
+[data-theme="dark"] {
+    --background: hsl(0, 0%, 0%);          /* Pure black background */
+    --text: hsl(200, 6.6667%, 91.1765%);   /* Light blue-gray text for better readability */
+    --gray-50: hsl(0, 0%, 9%);            /* Darkest gray for subtle backgrounds */
+    --gray-100: hsl(0, 0%, 15%);          /* Dark gray for card backgrounds */
+    --gray-200: hsl(0, 0%, 20%);          /* Dark border colors */
+    --gray-300: hsl(0, 0%, 30%);          /* Dark input borders */
+    --gray-400: hsl(0, 0%, 45%);          /* Medium gray for secondary text */
+    --gray-500: hsl(0, 0%, 60%);          /* Lighter gray for muted text */
+    --gray-600: hsl(0, 0%, 75%);          /* Light gray for body text secondary */
+    --gray-700: hsl(0, 0%, 85%);          /* Light text */
+    --gray-800: hsl(0, 0%, 90%);          /* Very light text */
+    --gray-900: hsl(0, 0%, 95%);          /* Lightest text */
+}
+
+/* Base Body Styles - Modern typography with smooth theme transitions */
+body {
+    font-family: 'Geist', sans-serif;              /* Clean, modern sans-serif font */
+    background-color: var(--background);           /* Dynamic background color */
+    color: var(--text);                           /* Dynamic text color */
+    line-height: 1.6;                             /* Optimal reading line height */
+    transition: background-color 0.3s ease, color 0.3s ease;   /* Smooth theme transitions */
+}
+
+/* Container - Responsive max-width container with consistent padding */
+.container {
+    max-width: 1200px;                            /* Maximum content width */
+    margin: 0 auto;                               /* Center container */
+    padding: 0 calc(var(--spacing-base) * 4);     /* Responsive horizontal padding */
+}
+
+/* Typography System - Hierarchical heading styles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;     /* Distinctive heading font */
+    font-weight: 700;                             /* Bold weight for impact */
+    line-height: 1.2;                             /* Tighter line height for headings */
+}
+
+/* Primary Color Utility - Applies brand primary color */
+.primary {
+    color: var(--primary);
+}
+
+/* ========================================
+   HEADER & NAVIGATION STYLES
+   ======================================== */
+
+/* Fixed Header - Glassmorphism effect with backdrop blur */
+.header {
+    position: fixed;                              /* Fixed positioning for sticky nav */
+    top: 0;                                       /* Align to top of viewport */
+    left: 0;                                      /* Full width positioning */
+    right: 0;                                     /* Full width positioning */
+    z-index: 1000;                               /* High z-index for overlay */
+    backdrop-filter: blur(10px) !important;      /* Modern glassmorphism effect */
+    background-color: rgba(255, 255, 255, 0.8);  /* Semi-transparent white */
+    transition: all 0.3s ease;                   /* Smooth transitions */
+}
+
+/* Dark Theme Header - Semi-transparent black background */
+[data-theme="dark"] .header {
+    background-color: rgba(0, 0, 0, 0.8);        /* Semi-transparent black */
+}
+
+/* Scrolled Header - Adds shadow for depth when scrolling */
+.header.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);  /* Subtle shadow for elevation */
+}
+
+/* Navigation Container - Flexbox layout with space-between */
+.nav-container {
+    max-width: 1200px;                            /* Match main container width */
+    margin: 0 auto;                               /* Center navigation */
+    padding: calc(var(--spacing-base) * 4);       /* Consistent padding */
+    display: flex;                                /* Flexbox for layout */
+    justify-content: space-between;               /* Space between brand and links */
+    align-items: center;                          /* Vertical centering */
+}
+
+/* Brand Styling - Logo and brand name */
+.nav-brand {
+    font-family: 'Space Grotesk', sans-serif;     /* Distinctive brand font */
+    font-weight: 700;                             /* Bold weight for impact */
+    font-size: 1.25rem;                          /* Larger brand text */
+}
+
+/* Brand Name Highlight - Primary color for brand emphasis */
+.brand-name {
+    color: var(--primary);
+}
+
+/* Navigation Links Container - Horizontal link layout */
+.nav-links {
+    display: flex;                                /* Horizontal flex layout */
+    align-items: center;                          /* Vertical centering */
+    gap: calc(var(--spacing-base) * 8);          /* Consistent spacing between links */
+}
+
+/* Navigation Link Styling - Clean, minimal link design */
+.nav-link {
+    text-decoration: none;                        /* Remove default underline */
+    color: var(--text);                          /* Dynamic text color */
+    font-weight: 500;                            /* Medium weight for readability */
+    font-size: 0.875rem;                         /* Smaller text for navigation */
+    text-transform: capitalize;                  /* Capitalize link text */
+    transition: color 0.2s ease;                 /* Smooth color transitions */
+}
+
+/* Navigation Link Hover - Primary color on hover */
+.nav-link:hover{
+    color: var(--primary);
+}
+
+/* Theme Toggle Button - Circular button with icon transitions */
+.theme-toggle {
+    background: transparent;                       /* Transparent background */
+    border: none;                                 /* Remove default border */
+    padding: calc(var(--spacing-base) * 2);       /* Comfortable touch target */
+    border-radius: 50%;                           /* Perfect circle */
+    cursor: pointer;                              /* Pointer cursor on hover */
+    transition: background-color 0.2s ease, border-color 0.2s ease;  /* Smooth transitions */
+    position: relative;                           /* For absolute positioned icons */
+    width: 40px;                                  /* Fixed width */
+    height: 40px;                                 /* Fixed height for circle */
+}
+
+/* Theme Toggle Hover - Light background on hover */
+.theme-toggle:hover {
+    background-color: var(--gray-100);
+}
+
+/* Theme Icons - Absolute positioned icons with opacity transitions */
+.theme-icon {
+    position: absolute;                           /* Absolute positioning */
+    top: 50%;                                     /* Vertical centering */
+    left: 50%;                                    /* Horizontal centering */
+    transform: translate(-50%, -50%);             /* Perfect centering */
+    font-size: 1.25rem;                          /* Appropriate icon size */
+    transition: opacity 0.3s ease, color 0.2s ease;  /* Smooth transitions */
+    color: var(--text);                          /* Dynamic text color */
+}
+
+/* Light Theme - Sun icon visible */
+.theme-icon.sun {
+    opacity: 1;
+}
+
+/* Light Theme - Moon icon hidden */
+.theme-icon.moon {
+    opacity: 0;
+}
+
+/* Dark Theme Toggle Hover - Dark background for contrast */
+[data-theme="dark"] .theme-toggle:hover {
+    background-color: var(--gray-800);            /* Dark hover background */
+}
+
+/* Dark Theme - Sun icon hidden */
+[data-theme="dark"] .theme-icon.sun {
+    opacity: 0;
+}
+
+/* Dark Theme - Moon icon visible */
+[data-theme="dark"] .theme-icon.moon {
+    opacity: 1;
+}
+
+/* Mobile Menu Toggle - Hamburger menu for mobile devices */
+.mobile-menu-toggle {
+    display: none;                               /* Hidden by default on desktop */
+    flex-direction: column;                      /* Stack spans vertically */
+    background: none;                           /* Transparent background */
+    border: none;                               /* Remove default border */
+    cursor: pointer;                            /* Pointer cursor */
+    padding: calc(var(--spacing-base) * 2);     /* Touch-friendly padding */
+}
+
+/* Hamburger Menu Lines - Three horizontal lines */
+.mobile-menu-toggle span {
+    width: 25px;                                /* Line width */
+    height: 3px;                                /* Line height */
+    background-color: var(--text);              /* Dynamic text color */
+    margin: 3px 0;                              /* Spacing between lines */
+    transition: 0.3s ease;                      /* Smooth transitions for animations */
+}
+
+/* ========================================
+   HERO SECTION STYLES
+   ======================================== */
+
+/* Hero Section - Full viewport height with centered content */
+.hero {
+    min-height: 100vh;                          /* Full viewport height */
+    display: flex;                              /* Flexbox for centering */
+    align-items: center;                        /* Vertical centering */
+    justify-content: center;                    /* Horizontal centering */
+    position: relative;                         /* For absolute positioned elements */
+    overflow: hidden;                           /* Hide overflow for animations */
+    padding-top: 80px;                         /* Account for fixed header */
+}
+
+/* Hero Background - Subtle gradient overlay */
+.hero-background {
+    position: absolute;                          /* Absolute positioning */
+    inset: 0;                                   /* Cover entire hero area */
+    background: linear-gradient(135deg, rgba(56, 139, 253, 0.05) 0%, transparent 50%, rgba(255, 193, 7, 0.05) 100%);
+}
+
+/* Background Orbs - Floating animated elements for visual interest */
+.bg-orb {
+    position: absolute;                          /* Absolute positioning */
+    border-radius: 50%;                         /* Perfect circles */
+    filter: blur(40px);                         /* Heavy blur for soft effect */
+    animation: float 6s ease-in-out infinite;   /* Floating animation */
+}
+
+/* Orb 1 - Large blue orb in top-left area */
+.orb-1 {
+    width: 300px;                               /* Large size */
+    height: 300px;                              /* Perfect circle */
+    background-color: rgba(56, 139, 253, 0.1);  /* Semi-transparent blue */
+    top: 25%;                                   /* Position from top */
+    left: 25%;                                  /* Position from left */
+    animation-delay: 0s;                        /* No delay */
+}
+
+/* Orb 2 - Medium yellow orb in bottom-right area */
+.orb-2 {
+    width: 200px;                               /* Medium size */
+    height: 200px;                              /* Perfect circle */
+    background-color: rgba(255, 193, 7, 0.1);   /* Semi-transparent yellow */
+    bottom: 25%;                                /* Position from bottom */
+    right: 25%;                                 /* Position from right */
+    animation-delay: 2s;                        /* 2 second delay */
+}
+
+/* Orb 3 - Small blue orb in middle-right area */
+.orb-3 {
+    width: 150px;                               /* Small size */
+    height: 150px;                              /* Perfect circle */
+    background-color: rgba(56, 139, 253, 0.1);  /* Semi-transparent blue */
+    top: 60%;                                   /* Position from top */
+    left: 70%;                                  /* Position from left */
+    animation-delay: 4s;                        /* 4 second delay */
+}
+
+/* Float Animation - Gentle floating motion with rotation */
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }      /* Start and end position */
+    50% { transform: translateY(-20px) rotate(180deg); }       /* Peak of float with rotation */
+}
+
+/* Hero Content Container - Centered content with proper layering */
+.hero-content {
+    text-align: center;                          /* Center all text content */
+    position: relative;                          /* For z-index stacking */
+    z-index: 10;                                /* Above background elements */
+    max-width: 1000px;                          /* Maximum content width */
+    padding: 0 calc(var(--spacing-base) * 4);   /* Horizontal padding */
+}
+
+/* Hero Icons Container - Centered icon layout */
+.hero-icons {
+    display: flex;                              /* Horizontal flex layout */
+    justify-content: center;                    /* Center icons */
+    gap: calc(var(--spacing-base) * 4);        /* Spacing between icons */
+    margin-bottom: calc(var(--spacing-base) * 8);  /* Bottom margin */
+}
+
+/* Hero Icon Base - Circular icons with pulsing animation */
+.hero-icon {
+    padding: calc(var(--spacing-base) * 3);     /* Internal padding */
+    border-radius: 50%;                         /* Perfect circle */
+    font-size: 2rem;                           /* Large icon size */
+    animation: pulse 2s ease-in-out infinite;   /* Pulsing animation */
+}
+
+/* Brain Icon - Blue background with no delay */
+.hero-icon.brain {
+    background-color: rgba(56, 139, 253, 0.1);  /* Semi-transparent blue */
+    animation-delay: 0s;                        /* No animation delay */
+}
+
+/* Code Icon - Yellow background with medium delay */
+.hero-icon.code {
+    background-color: rgba(255, 193, 7, 0.1);   /* Semi-transparent yellow */
+    animation-delay: 0.4s;                      /* 0.4 second delay */
+}
+
+/* Bolt Icon - Blue background with longer delay */
+.hero-icon.bolt {
+    background-color: rgba(56, 139, 253, 0.1);  /* Semi-transparent blue */
+    animation-delay: 0.8s;                      /* 0.8 second delay */
+}
+
+/* Pulse Animation - Gentle scaling and opacity change */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }      /* Normal state */
+    50% { transform: scale(1.1); opacity: 1; }           /* Pulsing state */
+}
+
+/* Hero Title - Large, responsive typography */
+.hero-title {
+    font-size: clamp(3rem, 8vw, 6rem);         /* Responsive font size (3rem to 6rem) */
+    margin-bottom: calc(var(--spacing-base) * 6);  /* Bottom margin */
+    line-height: 1.1;                          /* Tight line height for impact */
+}
+
+/* Title Line - Block display for line breaks */
+.title-line {
+    display: block;                            /* Each line on separate block */
+}
+
+/* Hero Subtitle - Descriptive text with muted color */
+.hero-subtitle {
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem); /* Responsive font size */
+    color: var(--gray-600);                    /* Muted text color */
+    margin-bottom: calc(var(--spacing-base) * 16);  /* Large bottom margin */
+    max-width: 800px;                          /* Maximum width for readability */
+    margin-left: auto;                         /* Center horizontally */
+    margin-right: auto;                        /* Center horizontally */
+    line-height: 1.5;                          /* Comfortable reading line height */
+}
+
+/* Hero Actions Container - Call-to-action buttons */
+.hero-actions {
+    display: flex;                             /* Horizontal flex layout */
+    flex-wrap: wrap;                           /* Wrap on smaller screens */
+    gap: calc(var(--spacing-base) * 4);        /* Spacing between buttons */
+    justify-content: center;                   /* Center buttons */
+    margin-bottom: calc(var(--spacing-base) * 16);  /* Bottom margin */
+}
+
+/* ========================================
+   BUTTON COMPONENT STYLES
+   ======================================== */
+
+/* Button Base - Common button styling */
+.btn {
+    padding: calc(var(--spacing-base) * 4) calc(var(--spacing-base) * 8);  /* Comfortable padding */
+    font-family: 'Geist', sans-serif;             /* Consistent font family */
+    font-weight: 500;                            /* Medium font weight */
+    font-size: 1.125rem;                        /* Readable font size */
+    border: none;                                /* Remove default border */
+    border-radius: var(--border-radius);         /* Consistent border radius */
+    cursor: pointer;                             /* Pointer cursor */
+    transition: all 0.3s ease;                  /* Smooth transitions */
+    text-decoration: none;                       /* Remove text decoration */
+    display: inline-block;                       /* Inline block for padding */
+    text-align: center;                          /* Center text */
+}
+
+/* Primary Button - Main call-to-action style */
+.btn-primary {
+    background-color: var(--secondary);          /* Black background */
+    color: var(--background);                    /* White text */
+    border: 2px solid var(--secondary);          /* Matching border */
+}
+
+/* Primary Button Hover - Darker background with scale effect */
+.btn-primary:hover {
+    background-color: var(--gray-800);          /* Darker background */
+    transform: scale(1.05);                     /* Slight scale up */
+}
+
+/* Dark Theme Primary Button - Blue background for better contrast */
+[data-theme="dark"] .btn-primary {
+    background-color: var(--primary);           /* Blue background */
+    color: var(--background);                   /* White text */
+    border: 2px solid var(--primary);           /* Blue border */
+}
+
+/* Dark Theme Primary Button Hover - Light background */
+[data-theme="dark"] .btn-primary:hover {
+    background-color: var(--gray-200);          /* Light background */
+}
+
+/* Secondary Button - Outlined style */
+.btn-secondary {
+    background-color: transparent;              /* Transparent background */
+    color: var(--text);                        /* Dynamic text color */
+    border: 2px solid var(--text);             /* Text color border */
+}
+
+/* Secondary Button Hover - Filled with scale effect */
+.btn-secondary:hover {
+    background-color: var(--text);             /* Fill with text color */
+    color: var(--background);                  /* Inverted text color */
+    transform: scale(1.05);                    /* Slight scale up */
+}
+
+/* Scroll Indicator - Animated arrow to guide users */
+.scroll-indicator {
+    cursor: pointer;                             /* Pointer cursor */
+    animation: bounce 2s infinite;              /* Continuous bouncing animation */
+}
+
+/* Scroll Arrow - Large arrow icon */
+.scroll-arrow {
+    font-size: 2rem;                            /* Large arrow size */
+    color: var(--gray-400);                     /* Muted arrow color */
+    transition: color 0.2s ease;                /* Smooth color transition */
+}
+
+/* Scroll Arrow Hover - Primary color on hover */
+.scroll-indicator:hover .scroll-arrow {
+    color: var(--primary);
+}
+
+/* Bounce Animation - Gentle bouncing motion */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }      /* Normal position */
+    40% { transform: translateY(-10px); }                      /* Peak bounce */
+    60% { transform: translateY(-5px); }                       /* Half bounce */
+}
+
+/* ========================================
+   SECTION LAYOUT STYLES
+   ======================================== */
+
+/* Section Base - Consistent vertical spacing */
+section {
+    padding: calc(var(--spacing-base) * 24) 0;  /* Large vertical padding */
+}
+
+/* Section Header - Centered header layout */
+.section-header {
+    text-align: center;                          /* Center all header content */
+    margin-bottom: calc(var(--spacing-base) * 16);  /* Bottom margin */
+}
+
+/* Section Title - Large, responsive headings */
+.section-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);       /* Responsive font size (2.5rem to 4rem) */
+    margin-bottom: calc(var(--spacing-base) * 6);  /* Bottom margin */
+}
+
+/* Section Subtitle - Descriptive text with constraints */
+.section-subtitle {
+    font-size: 1.25rem;                        /* Large subtitle text */
+    color: var(--gray-600);                    /* Muted text color */
+    max-width: 800px;                          /* Maximum width for readability */
+    margin: 0 auto;                            /* Center horizontally */
+    line-height: 1.5;                          /* Comfortable reading line height */
+}
+
+/* About Bottom Action Container */
+.about-bottom-action {
+    display: flex;                              /* Flexbox for centering */
+    justify-content: center;                    /* Center the button */
+    margin-top: calc(var(--spacing-base) * 12); /* Top margin from highlights */
+    padding: calc(var(--spacing-base) * 8) 0;   /* Vertical padding */
+}
+
+/* Click Here Button - Glassy call-to-action button */
+.click-here-btn {
+    display: inline-flex;                       /* Flexbox for icon alignment */
+    align-items: center;                        /* Vertical centering */
+    gap: calc(var(--spacing-base) * 2);        /* Reduced gap between text and icon */
+    padding: calc(var(--spacing-base) * 3) calc(var(--spacing-base) * 6);  /* Reduced padding */
+    background: rgba(56, 139, 253, 0.1);       /* Glassy transparent background */
+    backdrop-filter: blur(20px);               /* Glassmorphism blur effect */
+    border: 1px solid rgba(56, 139, 253, 0.2); /* Subtle glassy border */
+    color: var(--primary);                      /* Primary color text */
+    border-radius: calc(var(--spacing-base) * 8);  /* More rounded corners */
+    font-family: 'Space Grotesk', sans-serif;  /* Distinctive font */
+    font-weight: 500;                          /* Medium weight */
+    font-size: 0.875rem;                       /* Smaller text size */
+    text-transform: uppercase;                 /* Uppercase text */
+    letter-spacing: 0.5px;                     /* Letter spacing for impact */
+    cursor: pointer;                            /* Pointer cursor */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);  /* Smooth transitions */
+    box-shadow: 0 8px 32px rgba(56, 139, 253, 0.15);  /* Glassy shadow */
+    position: relative;                         /* For pseudo-elements */
+    overflow: hidden;                          /* Hide overflow for effects */
+}
+
+/* Click Here Button Hover - Enhanced glassy effects */
+.click-here-btn:hover {
+    transform: translateY(-2px) scale(1.05);     /* Lift and scale */
+    background: rgba(56, 139, 253, 0.2);         /* More opaque on hover */
+    backdrop-filter: blur(25px);                 /* Enhanced blur */
+    border-color: rgba(56, 139, 253, 0.4);       /* Brighter border */
+    box-shadow: 0 12px 40px rgba(56, 139, 253, 0.25);  /* Enhanced glassy shadow */
+    color: hsl(220, 90%, 46%);                   /* Darker text on hover */
+}
+
+/* Click Here Button Active - Pressed state */
+.click-here-btn:active {
+    transform: translateY(0) scale(0.98);        /* Press down effect */
+    background: rgba(56, 139, 253, 0.3);       /* More opaque when pressed */
+    backdrop-filter: blur(15px);               /* Reduced blur when pressed */
+    box-shadow: 0 4px 20px rgba(56, 139, 253, 0.2);  /* Reduced shadow */
+}
+
+/* Button Text - Text styling */
+.btn-text {
+    position: relative;                         /* For z-index stacking */
+    z-index: 2;                                /* Above pseudo-elements */
+    transition: all 0.3s ease;                 /* Smooth transitions */
+}
+
+/* Button Icon - Arrow icon styling */
+.btn-icon {
+    position: relative;                         /* For z-index stacking */
+    z-index: 2;                                /* Above pseudo-elements */
+    font-size: 1rem;                          /* Smaller icon size */
+    transition: all 0.3s ease;                 /* Smooth transitions */
+    transform: translateX(0);                   /* Initial position */
+}
+
+/* Button Icon Animation on Hover */
+.click-here-btn:hover .btn-icon {
+    transform: translateX(3px);                  /* Move right on hover */
+}
+
+/* Ripple Effect - Animated background */
+.click-here-btn::before {
+    content: '';                               /* Empty pseudo-element */
+    position: absolute;                        /* Absolute positioning */
+    top: 50%;                                  /* Center vertically */
+    left: 50%;                                 /* Center horizontally */
+    width: 0;                                  /* Start with no width */
+    height: 0;                                 /* Start with no height */
+    background: rgba(56, 139, 253, 0.1);      /* Subtle glassy ripple */
+    border-radius: 50%;                        /* Circular shape */
+    transform: translate(-50%, -50%);           /* Perfect centering */
+    transition: width 0.6s ease, height 0.6s ease;  /* Smooth expansion */
+    z-index: 1;                               /* Below text and icon */
+}
+
+/* Ripple Effect on Click */
+.click-here-btn:active::before {
+    width: 200px;                             /* Smaller width for smaller button */
+    height: 200px;                            /* Smaller height for smaller button */
+}
+
+/* Dark Theme Click Here Button */
+[data-theme="dark"] .click-here-btn {
+    background: rgba(56, 139, 253, 0.15);     /* Slightly more opaque for dark mode */
+    border-color: rgba(56, 139, 253, 0.3);    /* Brighter border for dark mode */
+    box-shadow: 0 8px 32px rgba(56, 139, 253, 0.2);  /* Enhanced shadow for dark mode */
+}
+
+[data-theme="dark"] .click-here-btn:hover {
+    background: rgba(56, 139, 253, 0.25);     /* More opaque on hover */
+    border-color: rgba(56, 139, 253, 0.5);    /* Brighter border on hover */
+    box-shadow: 0 12px 40px rgba(56, 139, 253, 0.3);  /* Enhanced shadow for dark mode */
+}
+
+/* Pulse Animation - Continuous subtle pulse for glassy button */
+@keyframes clickHerePulse {
+    0%, 100% { 
+        box-shadow: 0 8px 32px rgba(56, 139, 253, 0.15); 
+    }
+    50% { 
+        box-shadow: 0 8px 32px rgba(56, 139, 253, 0.25); 
+    }
+}
+
+/* Apply pulse animation */
+.click-here-btn {
+    animation: clickHerePulse 3s ease-in-out infinite;  /* Continuous pulse */
+}
+
+/* Responsive Design for Click Here Button */
+@media (max-width: 768px) {
+    .about-bottom-action {
+        margin-top: calc(var(--spacing-base) * 8);  /* Reduced margin on mobile */
+        padding: calc(var(--spacing-base) * 6) 0;   /* Reduced padding on mobile */
+    }
+    
+    .click-here-btn {
+        font-size: 0.75rem;                       /* Smaller text on mobile */
+        padding: calc(var(--spacing-base) * 2) calc(var(--spacing-base) * 4);  /* Reduced padding */
+    }
+    
+    .btn-icon {
+        font-size: 0.875rem;                      /* Smaller icon on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .click-here-btn {
+        font-size: 0.6875rem;                     /* Even smaller text on small mobile */
+        padding: calc(var(--spacing-base) * 1.5) calc(var(--spacing-base) * 3);  /* Minimal padding */
+        letter-spacing: 0.25px;                  /* Reduced letter spacing */
+    }
+    
+    .about-bottom-action {
+        margin-top: calc(var(--spacing-base) * 6);  /* Minimal margin on small mobile */
+    }
+}
+
+/* ========================================
+   ABOUT SECTION STYLES
+   ======================================== */
+
+/* About Section - Light background for contrast */
+.about {
+    background-color: var(--gray-50);            /* Subtle background color */
+}
+
+/* About Content Layout - Two-column grid for text and timeline */
+.about-content {
+    display: grid;                              /* CSS Grid layout */
+    grid-template-columns: 1fr 1fr;             /* Two equal columns */
+    gap: calc(var(--spacing-base) * 16);        /* Large gap between columns */
+    align-items: center;                        /* Vertical alignment */
+    margin-bottom: calc(var(--spacing-base) * 16);  /* Bottom margin */
+}
+
+/* About Heading - Section heading within about content */
+.about-heading {
+    font-size: 2rem;                           /* Large heading size */
+    margin-bottom: calc(var(--spacing-base) * 6);  /* Bottom margin */
+}
+
+/* About Paragraph - Body text styling */
+.about-paragraph {
+    font-size: 1.125rem;                       /* Larger body text */
+    color: var(--gray-600);                    /* Muted text color */
+    margin-bottom: calc(var(--spacing-base) * 6);  /* Bottom margin */
+    line-height: 1.6;                          /* Comfortable reading line height */
+}
+
+/* About Card - Elevated card container for timeline */
+.about-card {
+    background-color: var(--background);        /* Dynamic background color */
+    padding: calc(var(--spacing-base) * 8);     /* Generous padding */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);  /* Subtle shadow for elevation */
+    border-radius: calc(var(--spacing-base) * 2);  /* Rounded corners */
+}
+
+/* Card Title - Heading within cards */
+.card-title {
+    font-size: 1.25rem;                         /* Large card title */
+    margin-bottom: calc(var(--spacing-base) * 6);  /* Bottom margin */
+}
+
+/* Timeline Container - Timeline layout */
+.timeline {
+    position: relative;                         /* For potential timeline line */
+}
+
+/* Timeline Item - Individual timeline entry */
+.timeline-item {
+    display: flex;                             /* Flexbox for marker and content */
+    align-items: flex-start;                   /* Align to top */
+    margin-bottom: calc(var(--spacing-base) * 6);  /* Bottom margin */
+}
+
+/* Timeline Marker - Circular indicators */
+.timeline-marker {
+    width: calc(var(--spacing-base) * 4);       /* Small circular marker */
+    height: calc(var(--spacing-base) * 4);      /* Perfect circle */
+    border-radius: 50%;                        /* Circular shape */
+    margin-right: calc(var(--spacing-base) * 4);  /* Right margin */
+    margin-top: calc(var(--spacing-base) * 1);  /* Slight top offset */
+    flex-shrink: 0;                            /* Prevent shrinking */
+}
+
+/* Primary Marker - Blue timeline marker */
+.primary-marker {
+    background-color: var(--primary);           /* Primary blue color */
+}
+
+/* Accent Marker - Yellow timeline marker */
+.accent-marker {
+    background-color: var(--accent);            /* Accent yellow color */
+}
+
+/* Timeline Content Heading - Timeline item titles */
+.timeline-content h4 {
+    font-size: 1.125rem;                       /* Large timeline title */
+    margin-bottom: calc(var(--spacing-base) * 1);  /* Small bottom margin */
+}
+
+/* Timeline Meta - Date and location info */
+.timeline-meta {
+    color: var(--gray-600);                    /* Muted text color */
+    font-size: 0.875rem;                       /* Smaller text size */
+    margin-bottom: calc(var(--spacing-base) * 1);  /* Small bottom margin */
+}
+
+/* Timeline Description - Timeline item descriptions */
+.timeline-desc {
+    color: var(--gray-500);                    /* Lighter text color */
+    font-size: 0.875rem;                       /* Smaller text size */
+}
+
+/* Highlights Grid - Responsive grid for highlight cards */
+.highlights {
+    display: grid;                              /* CSS Grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  /* Responsive columns */
+    gap: calc(var(--spacing-base) * 6);        /* Grid gap */
+}
+
+/* Highlight Card - Individual highlight item */
+.highlight-card {
+    background-color: var(--background);        /* Dynamic background color */
+    padding: calc(var(--spacing-base) * 6);     /* Internal padding */
+    text-align: center;                        /* Center content */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);  /* Subtle shadow */
+    border-radius: calc(var(--spacing-base) * 2);  /* Rounded corners */
+    transition: transform 0.3s ease;           /* Smooth transform transition */
+}
+
+/* Highlight Card Hover - Lift effect on hover */
+.highlight-card:hover {
+    transform: translateY(-5px);                /* Lift up slightly */
+}
+
+/* Highlight Icon - Large emoji icons */
+.highlight-icon {
+    font-size: 2rem;                           /* Large icon size */
+    margin-bottom: calc(var(--spacing-base) * 4);  /* Bottom margin */
+}
+
+/* Highlight Card Heading - Card titles */
+.highlight-card h4 {
+    font-size: 1.125rem;                       /* Large card title */
+    margin-bottom: calc(var(--spacing-base) * 3);  /* Bottom margin */
+}
+
+/* Highlight Card Text - Card descriptions */
+.highlight-card p {
+    color: var(--gray-600);                    /* Muted text color */
+    font-size: 0.875rem;                       /* Smaller text size */
+}
+
+/* ========================================
+   PROJECTS SECTION STYLES
+   ======================================== */
+
+/* Projects Grid - Responsive grid for project cards */
+.projects-grid {
+    display: grid;                              /* CSS Grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));  /* Responsive columns with minimum width */
+    gap: calc(var(--spacing-base) * 8);        /* Grid gap */
+}
+
+/* Project Card - Individual project container */
+.project-card {
+    background-color: var(--background);        /* Dynamic background color */
+    padding: calc(var(--spacing-base) * 8);     /* Generous padding */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);  /* Elevated shadow */
+    border-radius: calc(var(--spacing-base) * 2);  /* Rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Smooth transitions */
+}
+
+/* Project Card Hover - Lift and enhanced shadow */
+.project-card:hover {
+    transform: translateY(-5px);                /* Lift up slightly */
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);  /* Enhanced shadow */
+}
+
+/* Project Header - Icon and status layout */
+.project-header {
+    display: flex;                             /* Flexbox layout */
+    justify-content: space-between;             /* Space between icon and status */
+    align-items: center;                       /* Vertical centering */
+    margin-bottom: calc(var(--spacing-base) * 4);  /* Bottom margin */
+}
+
+/* Project Icon - Large emoji icons */
+.project-icon {
+    font-size: 2.5rem;                        /* Very large icon size */
+}
+
+/* Project Status Badge - Status indicator */
+.project-status {
+    font-size: 0.75rem;                       /* Small text size */
+    padding: calc(var(--spacing-base) * 1) calc(var(--spacing-base) * 2);  /* Compact padding */
+    background-color: var(--accent);           /* Yellow background */
+    color: var(--secondary);                  /* Black text */
+    border-radius: calc(var(--spacing-base) * 3);  /* Rounded badge */
+    font-weight: 500;                         /* Medium font weight */
+}
+
+/* Project Title - Project heading */
+.project-title {
+    font-size: 1.5rem;                        /* Large project title */
+    margin-bottom: calc(var(--spacing-base) * 4);  /* Bottom margin */
+}
+
+/* Project Description - Project details */
+.project-description {
+    color: var(--gray-600);                   /* Muted text color */
+    font-size: 1rem;                         /* Standard body text size */
+    line-height: 1.6;                        /* Comfortable reading line height */
+    margin-bottom: calc(var(--spacing-base) * 6);  /* Bottom margin */
+}
+
+/* Project Tech Stack - Technology tags container */
+.project-tech {
+    display: flex;                           /* Horizontal flex layout */
+    flex-wrap: wrap;                         /* Wrap to new lines */
+    gap: calc(var(--spacing-base) * 2);      /* Gap between tags */
+    margin-bottom: calc(var(--spacing-base) * 6);  /* Bottom margin */
+}
+
+/* Tech Tag - Individual technology badge */
+.tech-tag {
+    font-size: 0.75rem;                      /* Small text size */
+    padding: calc(var(--spacing-base) * 1) calc(var(--spacing-base) * 3);  /* Compact padding */
+    background-color: var(--gray-100);       /* Light background */
+    color: var(--text);                      /* Dynamic text color */
+    border-radius: calc(var(--spacing-base) * 3);  /* Rounded tag */
+    font-weight: 500;                        /* Medium font weight */
+}
+
+/* Project Links Container - Action links */
+.project-links {
+    display: flex;                           /* Horizontal flex layout */
+    gap: calc(var(--spacing-base) * 3);      /* Gap between links */
+}
+
+/* Project Link - Primary action link */
+.project-link {
+    font-size: 0.875rem;                     /* Small text size */
+    font-weight: 500;                        /* Medium font weight */
+    color: var(--primary);                   /* Primary color */
+    text-decoration: none;                   /* Remove underline */
+    transition: color 0.2s ease;            /* Smooth color transition */
+}
+
+/* Project Link Hover - Darker color on hover */
+.project-link:hover {
+    color: var(--secondary);                 /* Darker color */
+}
+
+/* Secondary Project Link - Muted link style */
+.project-link.secondary {
+    color: var(--gray-600);                  /* Muted text color */
+}
+
+/* Secondary Project Link Hover - Darker on hover */
+.project-link.secondary:hover {
+    color: var(--text);                      /* Normal text color */
+}
+
+/* ========================================
+   SKILLS SECTION STYLES
+   ======================================== */
+
+/* Skills Section - Light background for contrast */
+.skills {
+    background-color: var(--gray-50);            /* Subtle background color */
+}
+
+/* Skills Content Container - Vertical layout for skill categories */
+.skills-content {
+    display: flex;                             /* Flexbox layout */
+    flex-direction: column;                    /* Vertical stacking */
+    gap: calc(var(--spacing-base) * 12);       /* Large gap between categories */
+}
+
+/* Skills Category - Individual skill category container */
+.skills-category {
+    background-color: var(--background);        /* Dynamic background color */
+    padding: calc(var(--spacing-base) * 8);     /* Generous padding */
+    border-radius: calc(var(--spacing-base) * 2);  /* Rounded corners */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);  /* Elevated shadow */
+}
+
+/* Category Title - Skill category heading */
+.category-title {
+    font-size: 1.5rem;                        /* Large category title */
+    margin-bottom: calc(var(--spacing-base) * 6);  /* Bottom margin */
+    text-align: center;                       /* Center alignment */
+}
+
+/* Skills Grid - Responsive grid for skill items (overridden by !important rules above) */
+.skills-grid {
+    display: grid;                              /* CSS Grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  /* Responsive columns */
+    gap: calc(var(--spacing-base) * 6);        /* Grid gap */
+}
+
+/* Skill Item - Individual skill with icon and progress bar */
+.skill-item {
+    display: flex;                             /* Flexbox layout */
+    align-items: center;                       /* Vertical centering */
+    gap: calc(var(--spacing-base) * 4);        /* Gap between icon and info */
+}
+
+/* Skill Icon - Emoji icons for skills */
+.skill-icon {
+    font-size: 2rem;                          /* Large icon size */
+    width: 60px;                              /* Fixed width for alignment */
+    text-align: center;                       /* Center icon */
+}
+
+/* Skill Info - Skill details container */
+.skill-info {
+    flex: 1;                                  /* Take remaining space */
+}
+
+/* Skill Info Heading - Skill name */
+.skill-info h4 {
+    font-size: 1.125rem;                      /* Large skill name */
+    margin-bottom: calc(var(--spacing-base) * 2);  /* Bottom margin */
+}
+
+/* Skill Level - Progress bar and label container */
+.skill-level {
+    display: flex;                            /* Flexbox layout */
+    align-items: center;                      /* Vertical centering */
+    gap: calc(var(--spacing-base) * 3);       /* Gap between bar and label */
+}
+
+/* Level Bar - Background for progress bar */
+.level-bar {
+    flex: 1;                                 /* Take remaining space */
+    height: 8px;                             /* Fixed height */
+    background-color: var(--gray-200);       /* Light background */
+    border-radius: 4px;                      /* Rounded corners */
+    overflow: hidden;                        /* Hide overflow */
+}
+
+/* Level Fill - Progress bar fill */
+.level-fill {
+    height: 100%;                           /* Full height */
+    background-color: var(--primary);        /* Primary color fill */
+    transition: width 0.3s ease;           /* Smooth width animation */
+}
+
+/* Skill Level Label - Skill level text */
+.skill-level span {
+    font-size: 0.875rem;                    /* Small text size */
+    color: var(--gray-600);                 /* Muted text color */
+    font-weight: 500;                       /* Medium font weight */
+    min-width: 80px;                        /* Minimum width for alignment */
+}
+
+/* Tech Cloud - Technology tags container */
+.tech-cloud {
+    display: flex;                            /* Flexbox layout */
+    flex-wrap: wrap;                          /* Wrap to new lines */
+    gap: calc(var(--spacing-base) * 3);       /* Gap between bubbles */
+    justify-content: center;                  /* Center alignment */
+}
+
+/* Tech Bubble - Individual technology tag */
+.tech-bubble {
+    padding: calc(var(--spacing-base) * 2) calc(var(--spacing-base) * 4);  /* Comfortable padding */
+    background-color: var(--gray-100);       /* Light background */
+    color: var(--text);                      /* Dynamic text color */
+    border-radius: calc(var(--spacing-base) * 6);  /* Highly rounded bubble */
+    font-size: 0.875rem;                     /* Small text size */
+    font-weight: 500;                        /* Medium font weight */
+    transition: all 0.3s ease;             /* Smooth transitions */
+}
+
+/* Tech Bubble Hover - Interactive hover effect */
+.tech-bubble:hover {
+    background-color: var(--primary);         /* Primary color background */
+    color: var(--secondary);                 /* Black text */
+    transform: scale(1.1);                   /* Scale up slightly */
+}
+
+/* Interests Grid - Responsive grid for interest cards (overridden by !important rules above) */
+.interests-grid {
+    display: grid;                              /* CSS Grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  /* Responsive columns */
+    gap: calc(var(--spacing-base) * 4);        /* Grid gap */
+}
+
+/* Interest Card - Individual interest item */
+.interest-card {
+    padding: calc(var(--spacing-base) * 6);     /* Internal padding */
+    border: 1px solid var(--gray-200);          /* Light border */
+    border-radius: calc(var(--spacing-base) * 2);  /* Rounded corners */
+    text-align: center;                        /* Center content */
+    transition: transform 0.3s ease;          /* Smooth transform transition */
+}
+
+/* Interest Card Hover - Lift and shadow effect */
+.interest-card:hover {
+    transform: translateY(-2px);               /* Lift up slightly */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);  /* Subtle shadow */
+}
+
+/* Interest Card Heading - Interest title */
+.interest-card h4 {
+    font-size: 1.125rem;                      /* Large card title */
+    margin-bottom: calc(var(--spacing-base) * 3);  /* Bottom margin */
+}
+
+/* Interest Card Text - Interest description */
+.interest-card p {
+    color: var(--gray-600);                   /* Muted text color */
+    font-size: 0.875rem;                     /* Small text size */
+    line-height: 1.5;                        /* Comfortable reading line height */
+}
+
+/* ========================================
+   CONTACT SECTION STYLES
+   ======================================== */
+
+/* Contact Content Layout - Two-column grid for info and form */
+.contact-content {
+    display: grid;                              /* CSS Grid layout */
+    grid-template-columns: 1fr 1fr;             /* Two equal columns */
+    gap: calc(var(--spacing-base) * 16);        /* Large gap between columns */
+    align-items: start;                        /* Align to top */
+}
+
+/* Contact Info Container - Vertical layout for contact cards */
+.contact-info {
+    display: flex;                             /* Flexbox layout */
+    flex-direction: column;                    /* Vertical stacking */
+    gap: calc(var(--spacing-base) * 6);       /* Gap between cards */
+}
+
+/* Contact Card - Individual contact method */
+.contact-card {
+    background-color: var(--background);        /* Dynamic background color */
+    padding: calc(var(--spacing-base) * 6);     /* Internal padding */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);  /* Subtle shadow */
+    border-radius: calc(var(--spacing-base) * 2);  /* Rounded corners */
+    text-align: center;                        /* Center content */
+    transition: transform 0.3s ease;          /* Smooth transform transition */
+}
+
+/* Contact Card Hover - Lift effect */
+.contact-card:hover {
+    transform: translateY(-2px);               /* Lift up slightly */
+}
+
+/* Contact Icon - Large emoji icons */
+.contact-icon {
+    font-size: 2rem;                          /* Large icon size */
+    margin-bottom: calc(var(--spacing-base) * 4);  /* Bottom margin */
+}
+
+/* Contact Card Heading - Contact method title */
+.contact-card h3 {
+    font-size: 1.25rem;                       /* Large card title */
+    margin-bottom: calc(var(--spacing-base) * 2);  /* Bottom margin */
+}
+
+/* Contact Card Text - Contact description */
+.contact-card p {
+    color: var(--gray-600);                   /* Muted text color */
+    margin-bottom: calc(var(--spacing-base) * 4);  /* Bottom margin */
+}
+
+/* Contact Link - Action link styling */
+.contact-link {
+    color: var(--primary);                    /* Primary color */
+    text-decoration: none;                    /* Remove underline */
+    font-weight: 500;                         /* Medium font weight */
+    transition: color 0.2s ease;            /* Smooth color transition */
+}
+
+/* Contact Link Hover - Darker color on hover */
+.contact-link:hover {
+    color: var(--secondary);                  /* Darker color */
+}
+
+/* Contact Form Container - Elevated form container */
+.contact-form-container {
+    background-color: var(--background);        /* Dynamic background color */
+    padding: calc(var(--spacing-base) * 8);     /* Generous padding */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);  /* Elevated shadow */
+    border-radius: calc(var(--spacing-base) * 2);  /* Rounded corners */
+}
+
+/* Contact Form - Form layout */
+.contact-form {
+    display: flex;                             /* Flexbox layout */
+    flex-direction: column;                    /* Vertical stacking */
+    gap: calc(var(--spacing-base) * 6);       /* Gap between form groups */
+}
+
+/* Form Group - Individual form field container */
+.form-group {
+    display: flex;                             /* Flexbox layout */
+    flex-direction: column;                    /* Vertical stacking */
+    gap: calc(var(--spacing-base) * 2);       /* Gap between label and input */
+}
+
+/* Form Label - Field labels */
+.form-group label {
+    font-weight: 500;                          /* Medium font weight */
+    color: var(--text);                       /* Dynamic text color */
+}
+
+/* Form Inputs - Text inputs and textarea */
+.form-group input,
+.form-group textarea {
+    padding: calc(var(--spacing-base) * 3);     /* Comfortable padding */
+    border: 1px solid var(--gray-300);        /* Light border */
+    border-radius: var(--border-radius);       /* Consistent border radius */
+    font-family: 'Geist', sans-serif;         /* Consistent font family */
+    font-size: 1rem;                          /* Standard font size */
+    background-color: var(--background);       /* Dynamic background */
+    color: var(--text);                       /* Dynamic text color */
+    transition: border-color 0.2s ease;     /* Smooth border transition */
+}
+
+/* Form Input Focus - Focus state styling */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;                            /* Remove default outline */
+    border-color: var(--primary);             /* Primary color border */
+}
+
+/* ========================================
+   FOOTER STYLES
+   ======================================== */
+
+/* Footer Base - Dark footer with light text */
+.footer {
+    background-color: var(--gray-900);         /* Very dark background */
+    color: var(--gray-100);                   /* Very light text */
+    padding: calc(var(--spacing-base) * 16) 0 calc(var(--spacing-base) * 8) 0;  /* Asymmetric padding */
+}
+
+/* Dark Theme Footer - Inverted colors for dark mode */
+[data-theme="dark"] .footer {
+    background-color: var(--gray-100);         /* Light background */
+    color: var(--gray-900);                   /* Dark text */
+}
+
+/* Footer Content Layout - Brand and links */
+.footer-content {
+    display: flex;                             /* Flexbox layout */
+    justify-content: space-between;             /* Space between brand and links */
+    align-items: center;                       /* Vertical centering */
+    margin-bottom: calc(var(--spacing-base) * 8);  /* Bottom margin */
+}
+
+/* Footer Brand - Brand information */
+.footer-brand h3 {
+    font-size: 1.5rem;                        /* Large brand title */
+    margin-bottom: calc(var(--spacing-base) * 2);  /* Bottom margin */
+}
+
+/* Footer Brand Description - Brand subtitle */
+.footer-brand p {
+    color: var(--gray-400);                   /* Muted text color */
+    font-size: 0.875rem;                     /* Small text size */
+}
+
+/* Dark Theme Footer Brand - Adjusted text color */
+[data-theme="dark"] .footer-brand p {
+    color: var(--gray-600);                   /* Darker text for dark mode */
+}
+
+/* Footer Links Container - Navigation links */
+.footer-links {
+    display: flex;                            /* Horizontal flex layout */
+    gap: calc(var(--spacing-base) * 6);       /* Gap between links */
+}
+
+/* Footer Links - Individual navigation links */
+.footer-links a {
+    color: var(--gray-300);                   /* Muted link color */
+    text-decoration: none;                    /* Remove underline */
+    font-size: 0.875rem;                     /* Small text size */
+    transition: color 0.2s ease;            /* Smooth color transition */
+}
+
+/* Dark Theme Footer Links - Adjusted text color */
+[data-theme="dark"] .footer-links a {
+    color: var(--gray-700);                   /* Darker text for dark mode */
+}
+
+/* Footer Links Hover - Primary color on hover */
+.footer-links a:hover {
+    color: var(--primary);
+}
+
+/* Footer Bottom - Copyright section */
+.footer-bottom {
+    text-align: center;                       /* Center alignment */
+    padding-top: calc(var(--spacing-base) * 8);  /* Top padding */
+    border-top: 1px solid var(--gray-800);    /* Top border */
+}
+
+/* Dark Theme Footer Bottom - Adjusted border color */
+[data-theme="dark"] .footer-bottom {
+    border-top: 1px solid var(--gray-200);    /* Light border for dark mode */
+}
+
+/* Footer Bottom Text - Copyright text */
+.footer-bottom p {
+    color: var(--gray-500);                   /* Muted text color */
+    font-size: 0.875rem;                     /* Small text size */
+}
+
+/* ========================================
+   RESPONSIVE DESIGN STYLES
+   ======================================== */
+
+/* Tablet Breakpoint - Single column layouts */
+@media (max-width: 1024px) {
+    .about-content,
+    .contact-content {
+        grid-template-columns: 1fr;             /* Single column layout */
+        gap: calc(var(--spacing-base) * 8);     /* Reduced gap */
+    }
+}
+
+/* Mobile Breakpoint - Mobile-specific adjustments */
+@media (max-width: 768px) {
+    /* Container - Reduced padding on mobile */
+    .container {
+        padding: 0 calc(var(--spacing-base) * 2);  /* Minimal horizontal padding */
+    }
+    
+    /* Navigation - Hide desktop nav, show mobile menu */
+    .nav-links {
+        display: none;                          /* Hide desktop navigation */
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;                         /* Show mobile menu button */
+    }
+    
+    /* Hero Actions - Stack buttons vertically */
+    .hero-actions {
+        flex-direction: column;                /* Vertical button layout */
+        align-items: center;                  /* Center alignment */
+    }
+    
+    /* Buttons - Full width on mobile */
+    .btn {
+        width: 100%;                          /* Full width buttons */
+        max-width: 300px;                     /* Maximum button width */
+    }
+    
+    /* Footer - Stack footer content vertically */
+    .footer-content {
+        flex-direction: column;                /* Vertical footer layout */
+        gap: calc(var(--spacing-base) * 6);   /* Gap between sections */
+        text-align: center;                   /* Center alignment */
+    }
+    
+    .footer-links {
+        justify-content: center;              /* Center footer links */
+    }
+}
+
+/* Small Mobile Breakpoint - Single column layouts for all grids */
+@media (max-width: 480px) {
+    /* Projects Grid - Single column on small screens */
+    .projects-grid {
+        grid-template-columns: 1fr;             /* Single column layout */
+    }
+    
+    /* Skills Grid - Single column on small screens */
+    .skills-grid {
+        grid-template-columns: 1fr;             /* Single column layout */
+    }
+    
+    /* Highlights Grid - Single column on small screens */
+    .highlights {
+        grid-template-columns: 1fr;             /* Single column layout */
+    }
+    
+    /* Interests Grid - Single column on small screens */
+    .interests-grid {
+        grid-template-columns: 1fr;             /* Single column layout */
+    }
+}
+
+.skills-category {
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* ========================================
+   END OF STYLESHEET
+   
+   This stylesheet provides a complete, modern,
+   and responsive design system for the AI/ML
+   portfolio website with:
+   
+   ✓ Dark/Light theme support
+   ✓ Mobile-first responsive design
+   ✓ Modern CSS Grid and Flexbox layouts
+   ✓ Smooth animations and transitions
+   ✓ Accessibility-focused design patterns
+   ✓ Professional color scheme
+   ✓ Comprehensive component library
+   
+   Total lines: 1186+
+   ======================================== */
