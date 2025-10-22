@@ -1,277 +1,535 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex Chen - Machine Learning Engineer</title>
-    <meta name="description" content="Machine Learning Engineer specializing in Computer Vision, NLP, and Deep Learning. Explore my portfolio of AI projects and technical expertise.">
-    <meta name="keywords" content="machine learning, AI, data science, computer vision, NLP, deep learning, python, tensorflow, pytorch">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    
-    <!-- Prism.js for syntax highlighting -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
-    
-    <!-- Chart.js for interactive charts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <title>Mayank Singh Parihar - AI/ML Portfolio</title>
+    <link rel="stylesheet" href="Main_styles.CSS">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="Main_INDEX.HTML"><span style="color:  hsl(220, 90%, 56%);;"> मयंक </span>सिंह परिहार</a>
-            </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="projects.html" class="nav-link">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-                        <span class="theme-icon">🌙</span>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container" id="navMenu">
+                <div class="nav-brand">
+                    <span class="brand-name"> मयंक </span>सिंह परिहार
+                </div>
+                <div class="nav-links">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" style="position:relative; z-index:1;">
+                        <span class="theme-icon sun">☀</span>
+                        <span class="theme-icon moon">☽</span>
                     </button>
-                </li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="navMenu" style="position:relative; z-index:9999;">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
+    <main>
+        <section class="hero">
+            <div class="hero-background">
+                <div class="bg-orb orb-1"></div>
+                <div class="bg-orb orb-2"></div>
+                <div class="bg-orb orb-3"></div>
+            </div>
             <div class="hero-content">
+                <div class="hero-icons">
+                    <div class="hero-icon brain">🧠</div>
+                    <div class="hero-icon code">💻</div>
+                    <div class="hero-icon bolt">⚡</div>
+                </div>
                 <h1 class="hero-title">
-                    <span class="gradient-text">Machine Learning Engineer</span>
-                    <br>Building AI Solutions
+                    <span class="title-line">Mayank Singh</span>
+                    <span class="title-line primary">Parihar</span>
                 </h1>
-                <p class="hero-description">
-                    Aspiring <b>AI Engineer</b>/ <b>Eunterpuner</b> passionate about transforming complex data into intelligent systems. Currently building skills in Computer Vision, Natural Language Processing, and Deep Learning as a  first-year B.Tech student. 
+                <p class="hero-subtitle">
+                    First-Year B.Tech Student • AI & Machine Learning Enthusiast •
+                    Building the Future with Artificial Intelligence
                 </p>
-                <div class="hero-buttons">
-                    <a href="projects.html" class="btn btn-primary">View Projects</a>
-                    <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" onclick="scrollToSection('about')">
+                        Explore My Journey
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('contact')">
+                        Get In Touch
+                    </button>
+                </div>
+                <div class="scroll-indicator" onclick="scrollToSection('about')">
+                    <div class="scroll-arrow">↓</div>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="floating-card">
-                    <div class="code-preview">
-                        <div class="code-header">
-                            <span class="code-title">neural_network.py</span>
-                        </div>
-                        <pre><code class="language-python">import tensorflow as tf
+        </section>
 
-class DeepLearningModel:
-    def __init__(self, layers):
-        self.model = tf.keras.Sequential([
-            tf.keras.layers.Dense(128, activation='relu'),
-            tf.keras.layers.Dropout(0.3),
-            tf.keras.layers.Dense(64, activation='relu'),
-            tf.keras.layers.Dense(10, activation='softmax')
-        ])
-    
-    def train(self, X, y):
-        self.model.compile(
-            optimizer='adam',
-            loss='categorical_crossentropy',
-            metrics=['accuracy']
-        )
-        return self.model.fit(X, y, epochs=100)</code></pre>
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">About <span class="primary">Me</span></h2>
+                    <p class="section-subtitle">
+                        A passionate technology enthusiast embarking on an exciting journey in artificial intelligence
+                        and machine learning, with a vision to shape the future through innovative solutions.
+                    </p>
+                </div>
+
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3 class="about-heading">My <span class="primary">Journey</span></h3>
+                        <p class="about-paragraph">
+                            As a first-year B.Tech student, I am at the beginning of what I envision to be a
+                            transformative
+                            journey in technology. My fascination with artificial intelligence and machine learning
+                            drives
+                            my academic pursuits and personal projects.
+                        </p>
+                        <p class="about-paragraph">
+                            I believe that AI has the potential to revolutionize every aspect of human life, from
+                            healthcare
+                            and education to environmental sustainability and space exploration. My goal is to be part
+                            of
+                            this revolutionary change.
+                        </p>
+                        <p class="about-paragraph">
+                            Through continuous learning, hands-on projects, and collaboration with like-minded
+                            individuals,
+                            I am building the foundation for a career dedicated to pushing the boundaries of what's
+                            possible
+                            with artificial intelligence.
+                        </p>
+                    </div>
+
+                    <div class="about-card">
+                        <h3 class="card-title">Academic Background</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-marker primary-marker"></div>
+                                <div class="timeline-content">
+                                    <h4>B.Tech in Computer Science</h4>
+                                    <p class="timeline-meta">First Year • Current</p>
+                                    <p class="timeline-desc">At Rungta International Skills University [Bhilai
+                                        Chhattishgarh]</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker accent-marker"></div>
+                                <div class="timeline-content">
+                                    <h4>Core Interests</h4>
+                                    <p class="timeline-desc">Machine Learning, Deep Learning, Natural Language
+                                        Processing <br>Artificial intelligence</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Featured Projects -->
-    <section class="featured-projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <p class="section-subtitle">Showcasing innovative ML solutions across different domains</p>
-            
-            <div class="projects-grid">
-                <article class="project-card featured" data-category="computer-vision">
-                    <div class="project-image">
-                        <img src="https://nisargadiagnostics.com/wp-content/uploads/2024/01/Are-You-at-Risk-for-Heart-Disease.png" alt="Medical Image Analysis" loading="lazy">
-                        <div class="project-overlay">
-                            <a href="project-medical-imaging.html" class="btn btn-primary">View Details</a>
-                        </div>
+                <div class="highlights">
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🎓</div>
+                        <h4>Academic Excellence</h4>
+                        <p>Strong foundation in computer science and engineering principles</p>
                     </div>
-                    <div class="project-content">
-                        <div class="project-category">Machine Learning [KNN_MODEL]</div>
-                        <h3 class="project-title">Heart Disease Risk Analyzer</h3>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🎯</div>
+                        <h4>AI/ML Focus</h4>
+                        <p>Specialized interest in AI and ML technologies and applications</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">❤️</div>
+                        <h4>Passionate Learner</h4>
+                        <p>Continuously exploring new technologies in the AI landscape</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🏆</div>
+                        <h4>Future Innovator</h4>
+                        <p>Committed to meaningful solutions through technology</p>
+                    </div>
+                </div>
+                
+                <!-- Click Here Button at bottom of About section -->
+                <div class="about-bottom-action">
+                    <a href="about.html" target="_blank" rel="noopener noreferrer" class="click-here-btn glassy-btn" id="clickHereBtn">
+                        <span class="btn-text">CLICK HERE</span>
+                        <span class="btn-icon">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">AI/ML <span class="primary">Projects</span></h2>
+                    <p class="section-subtitle">
+                        Exploring the frontiers of artificial intelligence through hands-on projects
+                        and innovative implementations.
+                    </p>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">🤖</div>
+                            <div class="project-status">In Development</div>
+                        </div>
+                        <h3 class="project-title">Machine Learning</h3>
                         <p class="project-description">
-                            I developed an end-to-end machine learning app to predict heart disease risk using a K-Nearest Neighbors model. The interactive interface is built with Streamlit and Plotly, and the project is version-controlled with Git and deployed live on Streamlit Cloud.
+                            Driven by a passion for AI and Machine Learning, this portfolio documents my journey from
+                            foundational theory to practical application. Explore my hands-on projects in data analysis
+                            and model building.kill set from the ground up.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Steamlit</span>
-                            <span class="tech-tag">KNN_MODEL</span>
+                            <span class="tech-tag">pandas</span>
+                            <span class="tech-tag">NumPy</span>
+                            <span class="tech-tag">Matplotlib</span>
+                            <span class="tech-tag">seaborn</span>
+                            <span class="tech-tag">Mathematics</span>
+                            <span class="tech-tag">Mathematics</span>
+                            <span class="tech-tag">supervise learning</span>
+                            <span class="tech-tag">unsupervise learning</span>
                         </div>
-                        <div class="project-metrics">
-                            <div class="metric">
-                                <span class="metric-value">88.6%</span>
-                                <span class="metric-label">Accuracy</span>
-                            </div>
-                            <!-- <div class="metric">
-                                <span class="metric-value">60%</span>
-                                <span class="metric-label">Time Reduction</span>
-                            </div> -->
+                        <div class="project-links">
+                            <a href="projects.html" class="project-link">View Project</a>
+                            <a href="#" class="project-link secondary">Documentation</a>
                         </div>
                     </div>
-                </article>
 
-                <article class="project-card featured" data-category="nlp">
-                    <div class="project-image">
-                        <img src="https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Sentiment Analysis" loading="lazy">
-                        <div class="project-overlay">
-                            <a href="project-sentiment-analysis.html" class="btn btn-primary">View Details</a>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">📊</div>
+                            <div class="project-status">Planning</div>
                         </div>
-                    </div>
-                    <!-- <div class="project-content">
-                        <div class="project-category">Natural Language Processing</div>
-                        <h3 class="project-title">Real-time Sentiment Analysis</h3>
+                        <h3 class="project-title">Data Analysis Toolkit</h3>
                         <p class="project-description">
-                            Transformer-based system for analyzing sentiment in social media posts and customer reviews 
-                            with support for multiple languages and emoji interpretation.
+                            Developing an intuitive toolkit for data preprocessing, visualization, and
+                            statistical analysis to streamline the machine learning pipeline.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-tag">BERT</span>
-                            <span class="tech-tag">Transformers</span>
-                            <span class="tech-tag">Docker</span>
-                        </div>
-                        <div class="project-metrics">
-                            <div class="metric">
-                                <span class="metric-value">92.3%</span>
-                                <span class="metric-label">F1-Score</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">45ms</span>
-                                <span class="metric-label">Latency</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-card featured" data-category="time-series">
-                    <div class="project-image">
-                        <img src="https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Stock Prediction" loading="lazy">
-                        <div class="project-overlay">
-                            <a href="project-stock-prediction.html" class="btn btn-primary">View Details</a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-category">Time Series</div>
-                        <h3 class="project-title">Financial Market Prediction</h3>
-                        <p class="project-description">
-                            LSTM-based model for predicting stock price movements using technical indicators, 
-                            news sentiment, and market data with 78% directional accuracy.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">TensorFlow</span>
-                            <span class="tech-tag">LSTM</span>
+                            <span class="tech-tag">Python</span>
                             <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Matplotlib</span>
                         </div>
-                        <div class="project-metrics">
-                            <div class="metric">
-                                <span class="metric-value">78%</span>
-                                <span class="metric-label">Accuracy</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">15%</span>
-                                <span class="metric-label">ROI</span>
-                            </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Coming Soon</a>
                         </div>
                     </div>
-                </article>
-            </div> -->
 
-            <div class="section-cta">
-                <a href="projects.html" class="btn btn-outline">View All Projects</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Overview -->
-    <!-- <section class="skills-overview">
-        <div class="container">
-            <h2 class="section-title">Technical Expertise</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <div class="skill-icon">🧠</div>
-                    <h3>Machine Learning</h3>
-                    <ul>
-                        <li>Deep Learning & Neural Networks</li>
-                        <li>Computer Vision & Image Processing</li>
-                        <li>Natural Language Processing</li>
-                        <li>Time Series Analysis</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-icon">🛠️</div>
-                    <h3>Tools & Frameworks</h3>
-                    <ul>
-                        <li>TensorFlow & PyTorch</li>
-                        <li>Scikit-learn & Pandas</li>
-                        <li>Docker & Kubernetes</li>
-                        <li>AWS & Google Cloud</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-icon">💻</div>
-                    <h3>Programming</h3>
-                    <ul>
-                        <li>Python & R</li>
-                        <li>SQL & NoSQL</li>
-                        <li>JavaScript & TypeScript</li>
-                        <li>Git & CI/CD</li>
-                    </ul>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">🧠</div>
+                            <div class="project-status">Research</div>
+                        </div>
+                        <h3 class="project-title">AI Ethics Framework</h3>
+                        <p class="project-description">
+                            Researching and developing guidelines for ethical AI development, focusing on
+                            bias detection, fairness metrics, and responsible AI implementation.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Research</span>
+                            <span class="tech-tag">Ethics</span>
+                            <span class="tech-tag">Documentation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Research Notes</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section> -->
+        </section>
 
-    <!-- Footer -->
+        <section id="skills" class="skills">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Skills & <span class="primary">Interests</span></h2>
+                    <p class="section-subtitle">
+                        Technical capabilities and areas of expertise in artificial intelligence,
+                        machine learning, and software development.
+                    </p>
+                </div>
+
+                <div class="skills-content">
+                    <div class="skills-category">
+                        <h3 class="category-title", style="font-size: 2.4rem; font-weight: bold; font-family: serif;">Technical Skills</h3>
+                            <!-- Python -->
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <div class="skill-icon">🐍</div>
+                                <div class="skill-info">
+                                    <h4>Python</h4>
+                                    <div class="skill-level">
+                                        <div class="level-bar">
+                                            <div class="level-fill" style="width: 75%"></div>
+                                        </div>
+                                        <span>Advanced</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Numpy, pandas, Matplotlib, seaborn -->
+                            <div class="skill-item">
+                                <div class="skill-icon">☕</div>
+                                <div class="skill-info">
+                                    <h4>Numpy, pandas, Matplotlib, seaborn</h4>
+                                    <div class="skill-level">
+                                        <div class="level-bar">
+                                            <div class="level-fill" style="width: 60%"></div>
+                                        </div>
+                                        <span>Intermediate</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Data Visualization -->
+                            <div class="skill-item">
+                                <div class="skill-icon">🎨</div>
+                                <div class="skill-info">
+                                    <h4>Data Visualization</h4>
+                                    <div class="skill-level">
+                                        <div class="level-bar">
+                                            <div class="level-fill" style="width: 60%"></div>
+                                        </div>
+                                        <span>Intermediate</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Video Editing -->
+                            <div class="skill-item">
+                                <div class="skill-icon">🧠</div>
+                                <div class="skill-info">
+                                    <h4>Video Editing</h4>
+                                    <div class="skill-level">
+                                        <div class="level-bar">
+                                            <div class="level-fill" style="width: 50%" ></div>
+                                        </div>
+                                        <span>Intermediate</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="skill-item">
+                                <div class="skill-icon">💻</div>
+                                <div class="skill-info">
+                                    <h4>SQL</h4>
+                                    <div class="skill-level">
+                                        <div class="level-bar">
+                                            <div class="level-fill" style="width: 60%"></div>
+                                        </div>
+                                        <span>Intermediate</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Statistics & Mathematics-->
+                            <div class="skill-item">
+                                <div class="skill-icon">📈</div>
+                                <div class="skill-info">
+                                    <h4>Statistics & Mathematics</h4>
+                                    <div class="skill-level">
+                                        <div class="level-bar">
+                                            <div class="level-fill" style="width: 40%; background-color: red;"></div>
+                                        </div>
+                                        <span>Beginner</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Supervise Learning -->
+                            <div class="skill-item">
+                                <div class="skill-icon">💻</div>
+                                <div class="skill-info">
+                                    <h4>Supervise Learning</h4>
+                                    <div class="skill-level">
+                                        <div class="level-bar">
+                                            <div class="level-fill" style="width: 40%; background-color: red;"></div>
+                                        </div>
+                                        <span>Beginner</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- JavaScript -->
+                            <div class="skill-item">
+                                <div class="skill-icon">⚡</div>
+                                <div class="skill-info">
+                                    <h4>JavaScript</h4>
+                                    <div class="skill-level">
+                                        <div class="level-bar">
+                                            <div class="level-fill" style="width: 30%; background-color: red;"></div>
+                                        </div>
+                                        <span>Beginner</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- C/C++ -->
+                            <div class="skill-item">
+                                <div class="skill-icon">🚀</div>
+                                <div class="skill-info">
+                                    <h4>C/C++</h4>
+                                    <div class="skill-level">
+                                        <div class="level-bar">
+                                            <div class="level-fill" style="width: 35%; background-color: red;"></div>
+                                        </div>
+                                        <span>Beginner</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            <br>
+            <br>
+            <div class="skills-category">
+                <h3 class="category-title">AI/ML Technologies</h3>
+                <div class="tech-cloud">
+                    <span class="tech-bubble">Machine Learning</span>
+                    <span class="tech-bubble">Deep Learning</span>
+                    <span class="tech-bubble">Neural Networks</span>
+                    <span class="tech-bubble">TensorFlow</span>
+                    <span class="tech-bubble">PyTorch</span>
+                    <span class="tech-bubble">Scikit-learn</span>
+                    <span class="tech-bubble">Pandas</span>
+                    <span class="tech-bubble">NumPy</span>
+                    <span class="tech-bubble">Matplotlib</span>
+                    <span class="tech-bubble">seaborn</span>
+                    <span class="tech-bubble">Computer Vision</span>
+                    <span class="tech-bubble">NLP</span>
+                    <span class="tech-bubble">Data Analysis</span>
+                    <span class="tech-bubble">Statistics</span><br>
+                    <span class="tech-bubble">Supervise Learning</span>
+                </div>
+            </div>
+            <br><br>
+            <div class="skills-category">
+                <h3 class="category-title">Areas of Interest</h3>
+                <div class="interests-grid">
+                    <div class="interest-card">
+                        <h4>🔮 Future Technology</h4>
+                        <p>Exploring emerging AI technologies and their potential applications</p>
+                    </div>
+                    <div class="interest-card">
+                        <h4>🌱 Sustainable AI</h4>
+                        <p>Developing environmentally conscious AI solutions and green computing</p>
+                    </div>
+                    <div class="interest-card">
+                        <h4>🎨 Creative AI</h4>
+                        <p>Intersection of artificial intelligence and creative expression</p>
+                    </div>
+                    <div class="interest-card">
+                        <h4>🚀 Space Technology</h4>
+                        <p>Applications of AI in space exploration and astronomical research</p>
+                    </div>
+                    <div class="interest-card">
+                        <h4>😊 विचारधारा</h4>
+                        <p style="font-size: large; color: rgb(246, 111, 0); font-weight: bold;">जय हिन्द, जय भारत, जय भवानी</p>
+                    </div>
+                    <div class="interest-card">
+                        <h4>मानसिकता</h4>
+                        <p style="font-size: small;font-weight: bold;">युद्ध नहीं जिनके जीवन में
+ वे भी बहुत अभागे होंगे<br>
+या तो प्रण को तोड़ा होगा
+या फिर रण से भागे होंगे</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Get In <span class="primary">Touch</span></h2>
+                    <p class="section-subtitle">
+                        Let's connect and explore opportunities in AI, machine learning, and technology.
+                        I'm always excited to discuss innovative projects and collaborations.
+                    </p>
+                </div>
+
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <div class="contact-icon">📧</div>
+                            <h3>Email</h3>
+                            <p>officialmayankparihar0@gmail.com</p>
+                            <a href="officialmayankparihar0@gmail.com" class="contact-link">Send Email</a>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">💼</div>
+                            <h3>LinkedIn</h3>
+                            <p>Connect professionally</p>
+                            <a href="https://www.linkedin.com/in/mayank-singh-parihar-192168271/"
+                                class="contact-link">View Profile</a>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">💻</div>
+                            <h3>GitHub</h3>
+                            <p>Explore my code</p>
+                            <a href="https://github.com/BIAS04" class="contact-link">View Projects</a>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">📊</div>
+                            <h3>Kaggle</h3>
+                            <p>Data science projects & competitions</p>
+                            <a href="https://www.kaggle.com/biased04" class="contact-link">View Profile</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-container">
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3><span style="color:  hsl(220, 90%, 56%);;"> मयंक </span>सिंह परिहार</h3>
-                    <p>Machine Learning Engineer passionate about building intelligent systems that solve real-world problems.</p>
+                <div class="footer-brand">
+                    <h3>Mayank Singh Parihar</h3>
+                    <p>AI/ML Enthusiast • First-Year B.Tech Student</p>
                 </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <div class="social-links">
-                        <a href="https://github.com/BIAS04" target="_blank" rel="noopener">GitHub</a>
-                        <a href="https://www.linkedin.com/in/mayank-singh-parihar-192168271/" target="_blank" rel="noopener">LinkedIn</a>
-                        <a href="officialmayankparihar0@gmail.com">Email</a>
-                    </div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#contact">Contact</a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -280,15 +538,7 @@ class DeepLearningModel:
         </div>
     </footer>
 
-    <!-- Loading Spinner -->
-    <div class="loading-spinner" id="loading-spinner">
-        <div class="spinner"></div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/animations.js"></script>
+    <script src="Main_script.js"></script>
 </body>
+
 </html>
