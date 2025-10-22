@@ -1282,6 +1282,19 @@ section {
         padding: 0 calc(var(--spacing-base) * 2);  /* Minimal horizontal padding */
     }
     
+    .nav-links.active {
+        display: flex;                         /* Show mobile nav when active */
+        flex-direction: column;                /* Vertical layout */
+        position: absolute;                    /* Overlay positioning */
+        top: 100%;                             /* Below header */
+        left: 0;                               /* Align left */
+        width: 100%;                           /* Full width */
+        background-color: var(--background);   /* Match background */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
+        padding: calc(var(--spacing-base) * 4) 0;  /* Vertical padding */
+        z-index: 999;                         /* Above other content */
+        transition: all 0.3s ease;             /* Smooth transition */
+    }
     /* Navigation - Hide desktop nav, show mobile menu */
     .nav-links {
         display: none;                          /* Hide desktop navigation */
