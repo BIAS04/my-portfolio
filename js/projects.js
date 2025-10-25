@@ -35,20 +35,22 @@ class ProjectsManager {
                 githubUrl: 'https://github.com/BIAS04/heart-risk-app',
                 demoUrl: 'https://heart-risk-app-haafbaq4fzzhccp6uaftul.streamlit.app/'
             },
-            // {
-            //     id: 'sentiment-analysis',
-            //     title: 'Real-time Sentiment Analysis',
-            //     description: 'Transformer-based system for analyzing sentiment in social media posts and customer reviews with support for multiple languages and emoji interpretation.',
-            //     category: 'nlp',
-            //     technologies: ['bert', 'transformers', 'docker', 'python'],
-            //     image: 'https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=800',
-            //     metrics: [
-            //         { name: 'F1-Score', value: '92.3%' },
-            //         { name: 'Latency', value: '45ms' }
-            //     ],
-            //     featured: true,
-            //     githubUrl: 'https://github.com/alexchen/sentiment-analysis'
-            // },
+            
+            {
+                id: 'Medical_Insurance_Charge_Predictor',
+                title: 'Medical Insurance Charge Predictor',
+                description: 'This project builds a machine learning model to predict an individuals medical insurance costs based on personal data like age, BMI, and smoking status..',
+                category: 'Machine Learning',
+                technologies: ['Pyton', 'Pandas', 'Numpy', 'Matplotlib', 'Seaborn', 'Scikit-learn', 'Streamlit'],
+                image: 'https://storage.googleapis.com/kaggle-datasets-images/8417100/13281356/7441083d5a3845edca9436d1eb5d7c7c/dataset-cover.jpg?t=2025-10-09-16-52-36',
+                metrics: [
+                    { name: 'Adj R2', value: '80%' },
+                    // { name: 'Latency', value: '45ms' }
+                ],
+                featured: true,
+                githubUrl: 'https://github.com/BIAS04/Medical-Insurance-Charge-Predictor-App',
+                demoUrl: 'https://medical-insurance-charge-predictor-app.streamlit.app/'
+            },
             // {
             //     id: 'stock-prediction',
             //     title: 'Financial Market Prediction',

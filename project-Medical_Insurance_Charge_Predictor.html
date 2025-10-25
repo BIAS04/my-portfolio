@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Image Analysis - Alex Chen ML Portfolio</title>
+    <meta name="description"
+        content="Deep learning system for automated detection of lung abnormalities in chest X-rays with 94.2% accuracy.">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+
+    <!-- Chart.js for interactive charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <style>
+        .project-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://www.shutterstock.com/image-vector/digital-health-insurance-online-healthcare-260nw-2531564999.jpg31467333.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: calc(var(--header-height) + var(--space-16)) 0 var(--space-16);
+            text-align: center;
+        }
+
+        .code-block {
+            background: var(--gray-900);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            margin: var(--space-6) 0;
+            position: relative;
+            overflow-x: auto;
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-4);
+            padding-bottom: var(--space-3);
+            border-bottom: 1px solid var(--gray-700);
+        }
+
+        .copy-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-size: var(--text-sm);
+            transition: all var(--transition-fast);
+        }
+
+        .copy-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .copy-btn.copied {
+            background: var(--success-color);
+        }
+
+        .metrics-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-6);
+            margin: var(--space-8) 0;
+        }
+
+        .metric-card {
+            background: var(--white);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            text-align: center;
+            border: 1px solid var(--gray-200);
+        }
+
+        .metric-value {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: var(--space-2);
+        }
+
+        .metric-label {
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+
+        .chart-container {
+            background: var(--white);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            margin: var(--space-8) 0;
+            border: 1px solid var(--gray-200);
+        }
+
+        .related-projects {
+            background: var(--gray-50);
+            padding: var(--space-16) 0;
+        }
+
+        .project-links {
+            display: flex;
+            gap: var(--space-4);
+            justify-content: center;
+            margin-top: var(--space-8);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="i2.html"><span style="color:  hsl(220, 90%, 56%);;"> मयंक </span>सिंह परिहार</a>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="projects.html" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="project-category">Machine Learning </div>
+            <h1 class="project-title"><b>Medical Insurance Charge Predictor</b></h1>
+            <p class="project-subtitle">
+                Predicting Medical Insurance Charge Based on Age, BMI, and Smoker Statusus risk analysis.
+            </p>
+            <div class="project-links">
+                <a href="https://github.com/BIAS04/Medical-Insurance-Charge-Predictor-App" target="_blank"
+                    rel="noopener" class="btn btn-primary">
+                    View on GitHub
+                </a>
+                <a href="https://medical-insurance-charge-predictor-app.streamlit.app/" target="_blank" rel="noopener"
+                    class="btn btn-secondary">
+                    Live Demo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Summary -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Executive Summary</h2>
+            <div class="content-grid">
+                <div class="content-main">
+                    <p>
+                        This project demonstrates the development of a machine learning system to predict individual
+                        medical insurance costs. The primary goal is to provide a reliable, data-driven tool for
+                        estimating healthcare expenses, offering significant value to both insurance providers for
+                        premium calculation and individuals for financial planning.ascular health profile.
+                        <br>
+                        A <b>Linear Regression model </b> was developed and trained on a dataset containing key
+                        demographic and health attributes, including age, Body Mass Index (BMI), and smoking status.
+                        These factors were identified as the most significant drivers of medical costs.
+                    </p>
+                    <p>
+                        The model performs strongly, achieving an <b>Adjusted R-squared of 80%</b>. This indicates that
+                        the model successfully explains 80% of the variance in insurance charges, proving it to be a
+                        robust and effective predictive tool. The high Adjusted $R^2$ value confirms that the selected
+                        features have a strong, relevant relationship to the costs, without being unnecessarily
+                        complex.ed decisions promptly.
+                        <br>
+                        This tool is designed to automate and refine premium estimations, though it is intended for
+                        informational purposes. Actual charges will vary, and this predictor is not a substitute for
+                        professional medical or financial advice.
+                    </p>
+                </div>
+                <div class="content-sidebar">
+                    <div class="tech-stack">
+                        <h3>Technology Stack</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Matplotlib</span>
+                            <span class="tech-tag">Numpy</span>
+                            <span class="tech-tag">Seaborn</span>
+                            <span class="tech-tag">Supervise Learning</span>
+                            <span class="tech-tag">Streamlit</span>
+                            <span class="tech-tag">scikit-learn</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Statement -->
+    <!-- <section class="section">
+        <div class="container">
+            <h2 class="section-title">Problem Statement & Business Context</h2>
+            <div class="problem-content">
+                <p>
+                    This project tackles the critical delay in heart disease screening by providing an instant,
+                    AI-powered risk assessment. It closes the gap between public health needs and accessible digital
+                    tools, empowering users to proactively manage their health and enabling more efficient healthcare
+                    triage.
+                </p>
+                <ul>
+                    <li><strong>Reduces Screening Time:</strong> Provides an instant risk analysis, eliminating
+                        traditional wait times.</li>
+                    <li><strong>Increases Accessibility::</strong> Offers a free, on-demand tool for immediate
+                        preliminary screening.</li>
+                    <li><strong>Encourages Proactive Health:</strong> Empowers users with early insights before symptoms
+                        arise.</li>
+                    <li><strong>Improves Triage:</strong> Helps prioritize healthcare resources toward high-risk
+                        individuals.</li>
+                </ul>
+                <p>
+                    This app serves to augment, not replace, a formal diagnosis. It offers an instant, preliminary
+                    screening that highlights potential risk, empowering users to seek professional medical review.
+                </p>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Dataset Overview -->
+    <!-- <section class="section" style="background: var(--gray-50);">
+        <div class="container">
+            <h2 class="section-title">Dataset Overview</h2>
+            <div class="dataset-info">
+                <div class="dataset-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">150,000+</span>
+                        <span class="stat-label">Chest X-ray Images</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">14</span>
+                        <span class="stat-label">Pathology Classes</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Medical Centers</span>
+                    </div>
+                </div>
+                
+                <h3>Data Sources & Preprocessing</h3>
+                <ul>
+                    <li><strong>NIH Chest X-ray Dataset:</strong> 112,120 frontal-view X-ray images</li>
+                    <li><strong>CheXpert Dataset:</strong> 224,316 chest radiographs from Stanford Hospital</li>
+                    <li><strong>MIMIC-CXR:</strong> 377,110 images from Beth Israel Deaconess Medical Center</li>
+                </ul>
+                
+                <h4>Preprocessing Pipeline:</h4>
+                <ol>
+                    <li>DICOM to PNG conversion with metadata preservation</li>
+                    <li>Image normalization and histogram equalization</li>
+                    <li>Lung segmentation using U-Net architecture</li>
+                    <li>Data augmentation (rotation, scaling, brightness adjustment)</li>
+                    <li>Quality filtering to remove low-quality images</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <!--
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Model Architecture & Methodology</h2>
+            
+            <h3>Architecture Overview</h3>
+            <p>
+                Our solution employs a multi-stage deep learning pipeline combining convolutional neural networks 
+                with attention mechanisms for precise abnormality detection and localization.
+            </p>
+            
+            <div class="methodology-details">
+                <h4>1. Feature Extraction Backbone</h4>
+                <ul>
+                    <li>ResNet-152 pre-trained on ImageNet as the base architecture</li>
+                    <li>Modified final layers for medical imaging domain adaptation</li>
+                    <li>Spatial attention modules to focus on relevant anatomical regions</li>
+                </ul>
+                
+                <h4>2. Multi-Label Classification Head</h4>
+                <ul>
+                    <li>Separate binary classifiers for each pathology class</li>
+                    <li>Focal loss to handle class imbalance</li>
+                    <li>Ensemble of 5 models for improved robustness</li>
+                </ul>
+                
+                <h4>3. Localization Network</h4>
+                <ul>
+                    <li>Grad-CAM visualization for abnormality localization</li>
+                    <li>Bounding box regression for precise region identification</li>
+                    <li>Uncertainty quantification for confidence scoring</li>
+                </ul>
+            </div>
+        -->
+    <!-- Code Snippet -->
+    <!-- <div class="code-block">
+                <div class="code-header">
+                    <span class="code-title">model_architecture.py</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+                <pre><code class="language-python">import torch
+import torch.nn as nn
+import torchvision.models as models
+from torch.nn import functional as F
+
+class MedicalImageClassifier(nn.Module):
+    def __init__(self, num_classes=14, pretrained=True):
+        super(MedicalImageClassifier, self).__init__()
+        
+        # Backbone: ResNet-152 with modifications
+        self.backbone = models.resnet152(pretrained=pretrained)
+        self.backbone.fc = nn.Identity()  # Remove final FC layer
+        
+        # Spatial Attention Module
+        self.attention = SpatialAttention(2048)
+        
+        # Multi-label classification heads
+        self.classifiers = nn.ModuleList([
+            nn.Sequential(
+                nn.Dropout(0.5),
+                nn.Linear(2048, 512),
+                nn.ReLU(),
+                nn.Dropout(0.3),
+                nn.Linear(512, 1),
+                nn.Sigmoid()
+            ) for _ in range(num_classes)
+        ])
+        
+        # Localization head
+        self.localizer = nn.Sequential(
+            nn.Conv2d(2048, 512, 3, padding=1),
+            nn.ReLU(),
+            nn.Conv2d(512, 256, 3, padding=1),
+            nn.ReLU(),
+            nn.Conv2d(256, num_classes, 1),
+            nn.Sigmoid()
+        )
+    
+    def forward(self, x):
+        # Feature extraction
+        features = self.backbone(x)  # [B, 2048, 7, 7]
+        
+        # Apply spatial attention
+        attended_features = self.attention(features)
+        
+        # Global average pooling for classification
+        pooled_features = F.adaptive_avg_pool2d(attended_features, 1)
+        pooled_features = pooled_features.view(pooled_features.size(0), -1)
+        
+        # Multi-label classification
+        predictions = []
+        for classifier in self.classifiers:
+            pred = classifier(pooled_features)
+            predictions.append(pred)
+        
+        # Localization maps
+        localization_maps = self.localizer(attended_features)
+        
+        return torch.cat(predictions, dim=1), localization_maps
+
+class SpatialAttention(nn.Module):
+    def __init__(self, in_channels):
+        super(SpatialAttention, self).__init__()
+        self.conv = nn.Conv2d(in_channels, 1, 1)
+        self.sigmoid = nn.Sigmoid()
+    
+    def forward(self, x):
+        attention_map = self.sigmoid(self.conv(x))
+        return x * attention_map</code></pre>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Results Dashboard -->
+    <!-- <section class="section" style="background: var(--gray-50);">
+        <div class="container">
+            <h2 class="section-title">Results & Performance Metrics</h2>
+        -->
+    <!-- Key Metrics -->
+    <!-- <div class="metrics-dashboard">
+                <div class="metric-card">
+                    <span class="metric-value">94.2%</span>
+                    <span class="metric-label">Overall Accuracy</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">0.91</span>
+                    <span class="metric-label">Average AUC</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">60%</span>
+                    <span class="metric-label">Time Reduction</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">2.3s</span>
+                    <span class="metric-label">Inference Time</span>
+                </div>
+            </div> -->
+
+    <!-- Performance Chart -->
+    <!-- <div class="chart-container">
+                <h3>Performance by Pathology Class</h3>
+                <canvas id="performanceChart" width="400" height="200"></canvas>
+            </div> -->
+
+    <!-- Training Code -->
+    <!-- <div class="code-block">
+                <div class="code-header">
+                    <span class="code-title">training_loop.py</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+                <pre><code class="language-python">def train_epoch(model, dataloader, optimizer, criterion, device):
+    model.train()
+    total_loss = 0
+    predictions = []
+    targets = []
+    
+    for batch_idx, (data, target) in enumerate(dataloader):
+        data, target = data.to(device), target.to(device)
+        
+        optimizer.zero_grad()
+        
+        # Forward pass
+        pred_classes, localization_maps = model(data)
+        
+        # Multi-label classification loss
+        classification_loss = criterion(pred_classes, target)
+        
+        # Localization loss (if ground truth masks available)
+        localization_loss = 0
+        if hasattr(target, 'masks'):
+            localization_loss = F.binary_cross_entropy(
+                localization_maps, target.masks
+            )
+        
+        # Combined loss
+        total_loss_batch = classification_loss + 0.1 * localization_loss
+        total_loss_batch.backward()
+        
+        # Gradient clipping
+        torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+        
+        optimizer.step()
+        
+        total_loss += total_loss_batch.item()
+        predictions.append(pred_classes.cpu())
+        targets.append(target.cpu())
+        
+        if batch_idx % 100 == 0:
+            print(f'Batch {batch_idx}/{len(dataloader)}, Loss: {total_loss_batch.item():.4f}')
+    
+    # Calculate metrics
+    all_predictions = torch.cat(predictions, dim=0)
+    all_targets = torch.cat(targets, dim=0)
+    
+    auc_scores = []
+    for i in range(all_targets.shape[1]):
+        auc = roc_auc_score(all_targets[:, i], all_predictions[:, i])
+        auc_scores.append(auc)
+    
+    return total_loss / len(dataloader), np.mean(auc_scores)</code></pre>
+            </div>
+
+            <h3>Key Insights</h3>
+            <ul>
+                <li><strong>Superior Performance:</strong> Outperformed baseline models by 12% in average AUC</li>
+                <li><strong>Consistent Results:</strong> Maintained >90% accuracy across all pathology classes</li>
+                <li><strong>Clinical Impact:</strong> Reduced false positive rate by 25% compared to previous systems</li>
+                <li><strong>Efficiency Gains:</strong> 60% reduction in initial screening time for radiologists</li>
+                <li><strong>Uncertainty Quantification:</strong> Reliable confidence scores help prioritize urgent cases</li>
+            </ul>
+        </div>
+    </section> -->
+
+    <!-- Related Projects -->
+    <!-- <section class="related-projects">
+        <div class="container">
+            <h2 class="section-title">Related Projects</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Object Detection" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-category">Computer Vision</div>
+                        <h3 class="project-title">Real-time Object Detection</h3>
+                        <p class="project-description">YOLO-based system for real-time object detection in video streams.</p>
+                        <a href="project-object-detection.html" class="btn btn-outline">View Project</a>
+                    </div>
+                </article>
+                
+                <article class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Sentiment Analysis" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-category">NLP</div>
+                        <h3 class="project-title">Sentiment Analysis System</h3>
+                        <p class="project-description">Real-time sentiment analysis for social media monitoring.</p>
+                        <a href="project-sentiment-analysis.html" class="btn btn-outline">View Project</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><span style="color:  hsl(220, 90%, 56%);;"> मयंक </span>सिंह परिहार</h3>
+                    <p>Machine Learning Engineer passionate about building intelligent systems that solve real-world
+                        problems.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://github.com/BIAS04" target="_blank" rel="noopener">GitHub</a>
+                        <a href="https://www.linkedin.com/in/mayank-singh-parihar-192168271/" target="_blank"
+                            rel="noopener">LinkedIn</a>
+                        <a href="officialmayankparihar0@gmail.com">Email</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mayank Singh Parihar. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="js/pmain.js"></script>
+    <script src="js/animations.js"></script>
+
+    <script>
+        // Copy code functionality
+        function copyCode(button) {
+            const codeBlock = button.parentElement.nextElementSibling.querySelector('code');
+            const text = codeBlock.textContent;
+
+            navigator.clipboard.writeText(text).then(() => {
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        // Initialize performance chart
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('performanceChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Pneumonia', 'Atelectasis', 'Cardiomegaly', 'Effusion', 'Infiltration', 'Mass', 'Nodule', 'Pneumothorax'],
+                    datasets: [{
+                        label: 'AUC Score',
+                        data: [0.94, 0.89, 0.92, 0.91, 0.88, 0.95, 0.93, 0.90],
+                        backgroundColor: 'rgba(37, 99, 235, 0.8)',
+                        borderColor: 'rgba(37, 99, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 1.0
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
