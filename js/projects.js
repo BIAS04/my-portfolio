@@ -234,7 +234,7 @@ class ProjectsManager {
                 <div class="project-image">
                     <img src="${project.image}" alt="${project.title}" loading="lazy">
                     <div class="project-overlay">
-                        <a href="project-${project.id}.html" class="btn btn-primary">View Details</a>
+                        <a href="Project_page/project-${project.id}.html" class="btn btn-primary">View Details</a>
                     </div>
                 </div>
                 <div class="project-content">
@@ -272,6 +272,7 @@ class ProjectsManager {
             'lstm': 'LSTM',
             'pandas': 'Pandas',
             'yolo': 'YOLO',
+            'machine-learning': 'Machine Learning',
             'tensorrt': 'TensorRT',
             'gpt': 'GPT',
             'redis': 'Redis',
