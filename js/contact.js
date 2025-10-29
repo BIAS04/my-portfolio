@@ -93,7 +93,39 @@ class ContactForm {
         if (!this.validateForm()) {
             return;
         }
+        // Replace any references to the old resume filename with the new one
+        (() => {
+            const oldName = 'Alex_Chen_Resume.html';
+            const newName = 'Mayank_Singh_Parihar_Resume.html';
 
+            // Update input/textarea values and data attributes
+            const fields = this.form.querySelectorAll('input, textarea');
+            fields.forEach(el => {
+                if (el.value === oldName) el.value = newName;
+                if (el.dataset && el.dataset.filename === oldName) el.dataset.filename = newName;
+            });
+
+            // Update anchor href attributes inside the form
+            const anchors = this.form.querySelectorAll('a[href]');
+            anchors.forEach(a => {
+                const hrefAttr = a.getAttribute('href') || '';
+                if (hrefAttr.includes(oldName)) {
+                    a.setAttribute('href', hrefAttr.replace(oldName, newName));
+                }
+            });
+
+            // Replace plain text occurrences inside the form
+            const allEls = this.form.querySelectorAll('*');
+            allEls.forEach(el => {
+                if (el.childNodes && el.childNodes.length) {
+                    el.childNodes.forEach(node => {
+                        if (node.nodeType === Node.TEXT_NODE && node.nodeValue && node.nodeValue.includes(oldName)) {
+                            node.nodeValue = node.nodeValue.replace(new RegExp(oldName, 'g'), newName);
+                        }
+                    });
+                }
+            });
+        })();
         this.setSubmitState(true);
 
         try {
