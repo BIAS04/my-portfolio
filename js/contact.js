@@ -96,7 +96,7 @@ class ContactForm {
         // Replace any references to the old resume filename with the new one
         (() => {
             const oldName = 'Alex_Chen_Resume.html';
-            const newName = 'Mayank_Singh_Parihar_Resume.html';
+            const newName = 'Mayank_Singh_Parihar_Resume.pdf';
 
             // Update input/textarea values and data attributes
             const fields = this.form.querySelectorAll('input, textarea');
