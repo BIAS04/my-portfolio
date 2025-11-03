@@ -16,7 +16,6 @@ class ProjectsManager {
         this.setupEventListeners();
         this.renderProjects();
     }
-
     loadProjects() {
         // Sample project data - in a real application, this would come from an API
         this.projects = [
@@ -51,20 +50,22 @@ class ProjectsManager {
                 githubUrl: 'https://github.com/BIAS04/Medical-Insurance-Charge-Predictor-App',
                 demoUrl: 'https://medical-insurance-charge-predictor-app.streamlit.app/'
             },
-            // {
-            //     id: 'stock-prediction',
-            //     title: 'Financial Market Prediction',
-            //     description: 'LSTM-based model for predicting stock price movements using technical indicators, news sentiment, and market data with 78% directional accuracy.',
-            //     category: 'time-series',
-            //     technologies: ['tensorflow', 'lstm', 'pandas', 'python'],
-            //     image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800',
-            //     metrics: [
-            //         { name: 'Accuracy', value: '78%' },
-            //         { name: 'ROI', value: '15%' }
-            //     ],
-            //     featured: true,
-            //     githubUrl: 'https://github.com/alexchen/stock-prediction'
-            // },
+            {
+                id: 'Student_Placement_Predictor',
+                title: 'Student Placement Predictor',
+                description: 'A machine learning app using a Decision Tree Classifier to predict student placement outcomes based on academic and skill-based attributes. Built for educational purposes..',
+                category: 'Machine Learning',
+                technologies: ['Pyton', 'Pandas', 'Numpy', 'Matplotlib', 'Seaborn', 'Scikit-learn', 'Streamlit'],
+                image: 'https://drmcet.ac.in/wp-content/uploads/2024/03/Placement-1024x576.jpg',
+                metrics: [
+                    { name: 'Accuracy', value: '96.5%' },
+                    { name: 'f1', value: '90.08%' }
+                ],
+                featured: true,
+                demoUrl: 'https://collegeplacmentanalysis.streamlit.app/',
+                githubUrl: 'https://github.com/BIAS04/College_Placment__Analysis_ML_MODEL',
+
+            },
             // {
             //     id: 'object-detection',
             //     title: 'Real-time Object Detection',

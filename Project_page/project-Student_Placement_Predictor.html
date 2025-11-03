@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heart Disease Risk Analyzer - Mayank Singh Parihar ML Portfolio</title>
-    <meta name="description" content="Deep learning system for automated detection of lung abnormalities in chest X-rays with 94.2% accuracy.">
-    
+    <title>Student Placement Predictor - Mayank Singh Parihar ML Portfolio</title>
+    <meta name="description"
+        content="Deep learning system for automated detection of lung abnormalities in chest X-rays with 94.2% accuracy.">
+
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
     <!-- Prism.js for syntax highlighting -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
-    
+
     <!-- Chart.js for interactive charts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/components.css">
     <link rel="stylesheet" href="../css/responsive.css">
-    
+
     <style>
         .project-hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://www.shutterstock.com/image-photo/3d-red-heart-shape-line-600nw-2231467333.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('');
             background-size: cover;
             background-position: center;
             color: white;
             padding: calc(var(--header-height) + var(--space-16)) 0 var(--space-16);
             text-align: center;
         }
-        
+
         .code-block {
             background: var(--gray-900);
             border-radius: var(--radius-lg);
@@ -38,7 +42,7 @@
             position: relative;
             overflow-x: auto;
         }
-        
+
         .code-header {
             display: flex;
             justify-content: space-between;
@@ -47,7 +51,7 @@
             padding-bottom: var(--space-3);
             border-bottom: 1px solid var(--gray-700);
         }
-        
+
         .copy-btn {
             background: var(--primary-color);
             color: white;
@@ -58,22 +62,22 @@
             font-size: var(--text-sm);
             transition: all var(--transition-fast);
         }
-        
+
         .copy-btn:hover {
             background: var(--primary-dark);
         }
-        
+
         .copy-btn.copied {
             background: var(--success-color);
         }
-        
+
         .metrics-dashboard {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: var(--space-6);
             margin: var(--space-8) 0;
         }
-        
+
         .metric-card {
             background: var(--white);
             padding: var(--space-6);
@@ -82,7 +86,7 @@
             text-align: center;
             border: 1px solid var(--gray-200);
         }
-        
+
         .metric-value {
             font-size: var(--text-3xl);
             font-weight: 700;
@@ -90,12 +94,12 @@
             display: block;
             margin-bottom: var(--space-2);
         }
-        
+
         .metric-label {
             color: var(--gray-600);
             font-weight: 500;
         }
-        
+
         .chart-container {
             background: var(--white);
             padding: var(--space-6);
@@ -104,12 +108,12 @@
             margin: var(--space-8) 0;
             border: 1px solid var(--gray-200);
         }
-        
+
         .related-projects {
             background: var(--gray-50);
             padding: var(--space-16) 0;
         }
-        
+
         .project-links {
             display: flex;
             gap: var(--space-4);
@@ -118,6 +122,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
@@ -156,18 +161,20 @@
     <section class="project-hero">
         <div class="container">
             <div class="project-category">Machine Learning </div>
-            <h1 class="project-title">Heart Disease Risk Analyzer</h1>
+            <h1 class="project-title">Student Placement Predictor</h1>
             <p class="project-subtitle">
-                Machine learning system for the predictive assessment of heart disease, achieving 88.6% accuracy and providing an instantaneous risk analysis.
-            </p>
-            <div class="project-links">
-                <a href="https://github.com/BIAS04/heart-risk-app" target="_blank" rel="noopener" class="btn btn-primary">
+                Predicting Student Placement Based on IQ, CGPA, Academic Performance, Projects Completed, Internship
+                Experience, Communication Skills.
+
+                <a href="https://github.com/BIAS04/College_Placment__Analysis_ML_MODEL" target="_blank" rel="noopener"
+                    class="btn btn-primary">
                     View on GitHub
                 </a>
-                <a href="https://heart-risk-app-haafbaq4fzzhccp6uaftul.streamlit.app/" target="_blank" rel="noopener" class="btn btn-secondary">
+                <a href="https://collegeplacmentanalysis.streamlit.app/" target="_blank" rel="noopener"
+                    class="btn btn-secondary">
                     Live Demo
                 </a>
-            </div>
+        </div>
         </div>
     </section>
 
@@ -178,12 +185,22 @@
             <div class="content-grid">
                 <div class="content-main">
                     <p>
-                        This project addresses the need for rapid and accessible preliminary health screenings by developing and deploying an AI-powered web application that provides an instantaneous risk assessment for heart disease. The tool serves as an efficient, data-driven first step for individuals to evaluate their cardiovascular health profile.
-<br>
-The application is built on a K-Nearest Neighbors (KNN) machine learning model, which achieves a validated accuracy of 88.6%. The interactive user interface was developed using Streamlit and features a real-time risk visualization gauge powered by Plotly. The complete end-to-end project is version-controlled with Git/GitHub and deployed live on Streamlit Cloud, demonstrating a robust and modern MLOps workflow.
+                        This project introduces a predictive application designed to forecast student placement success.
+                        The primary objective is to demonstrate a practical application of machine learning within an
+                        academic and recruitment context. The model assesses a student's profile and provides a simple
+                        binary prediction of whether they are likely to be "Placed" or "Not Placed" during campus
+                        hiring.
+                        <br>
+                        The technical core of this project is a Decision Tree Classifier, a supervised learning
+                        algorithm chosen for its interpretability. The model is trained to identify patterns in key
+                        attributes, including CGPA, academic performance, IQ, projects completed, internship experience,
+                        and communication skills, ultimately classifying candidates based on these input features.
                     </p>
                     <p>
-                        The key impact of this project is the drastic reduction in assessment time, transforming a traditionally lengthy process into an immediate insight. The result is a fully functional, user-friendly tool that makes proactive health monitoring more accessible and empowers users to make informed decisions promptly.
+                        This tool was developed strictly for educational purposes. It serves as a hands-on demonstration
+                        of how classification algorithms work and is not a validated, real-world predictor for actual
+                        student placements. The project's value lies in its clear illustration of the machine learning
+                        model-building process, from feature selection to prediction.
                     </p>
                 </div>
                 <div class="content-sidebar">
@@ -206,7 +223,7 @@ The application is built on a K-Nearest Neighbors (KNN) machine learning model, 
     </section>
 
     <!-- Problem Statement -->
-    <section class="section">
+    <!-- <section class="section">
         <div class="container">
             <h2 class="section-title">Problem Statement & Business Context</h2>
             <div class="problem-content">
@@ -224,7 +241,7 @@ The application is built on a K-Nearest Neighbors (KNN) machine learning model, 
                 </p>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Dataset Overview -->
     <!-- <section class="section" style="background: var(--gray-50);">
@@ -266,7 +283,7 @@ The application is built on a K-Nearest Neighbors (KNN) machine learning model, 
     </section>
 
     <!-- Methodology -->
-     <!--
+    <!--
     <section class="section">
         <div class="container">
             <h2 class="section-title">Model Architecture & Methodology</h2>
@@ -300,8 +317,8 @@ The application is built on a K-Nearest Neighbors (KNN) machine learning model, 
                 </ul>
             </div>
         -->
-            <!-- Code Snippet -->
-            <!-- <div class="code-block">
+    <!-- Code Snippet -->
+    <!-- <div class="code-block">
                 <div class="code-header">
                     <span class="code-title">model_architecture.py</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
@@ -384,8 +401,8 @@ class SpatialAttention(nn.Module):
         <div class="container">
             <h2 class="section-title">Results & Performance Metrics</h2>
         -->
-            <!-- Key Metrics -->
-            <!-- <div class="metrics-dashboard">
+    <!-- Key Metrics -->
+    <!-- <div class="metrics-dashboard">
                 <div class="metric-card">
                     <span class="metric-value">94.2%</span>
                     <span class="metric-label">Overall Accuracy</span>
@@ -404,14 +421,14 @@ class SpatialAttention(nn.Module):
                 </div>
             </div> -->
 
-            <!-- Performance Chart -->
-            <!-- <div class="chart-container">
+    <!-- Performance Chart -->
+    <!-- <div class="chart-container">
                 <h3>Performance by Pathology Class</h3>
                 <canvas id="performanceChart" width="400" height="200"></canvas>
             </div> -->
 
-            <!-- Training Code -->
-            <!-- <div class="code-block">
+    <!-- Training Code -->
+    <!-- <div class="code-block">
                 <div class="code-header">
                     <span class="code-title">training_loop.py</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
@@ -517,7 +534,8 @@ class SpatialAttention(nn.Module):
             <div class="footer-content">
                 <div class="footer-section">
                     <h3><span style="color:  hsl(220, 90%, 56%);;"> मयंक </span>सिंह परिहार</h3>
-                    <p>Machine Learning Engineer passionate about building intelligent systems that solve real-world problems.</p>
+                    <p>Machine Learning Engineer passionate about building intelligent systems that solve real-world
+                        problems.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
@@ -531,7 +549,8 @@ class SpatialAttention(nn.Module):
                     <h4>Connect</h4>
                     <div class="social-links">
                         <a href="https://github.com/BIAS04" target="_blank" rel="noopener">GitHub</a>
-                        <a href="https://www.linkedin.com/in/mayank-singh-parihar-192168271/" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/mayank-singh-parihar-192168271/" target="_blank"
+                            rel="noopener">LinkedIn</a>
                         <a href="officialmayankparihar0@gmail.com">Email</a>
                     </div>
                 </div>
@@ -544,16 +563,17 @@ class SpatialAttention(nn.Module):
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/animations.js"></script>
-    
+
     <script>
         // Copy code functionality
         function copyCode(button) {
             const codeBlock = button.parentElement.nextElementSibling.querySelector('code');
             const text = codeBlock.textContent;
-            
+
             navigator.clipboard.writeText(text).then(() => {
                 button.textContent = 'Copied!';
                 button.classList.add('copied');
@@ -563,7 +583,7 @@ class SpatialAttention(nn.Module):
                 }, 2000);
             });
         }
-        
+
         // Initialize performance chart
         document.addEventListener('DOMContentLoaded', () => {
             const ctx = document.getElementById('performanceChart').getContext('2d');
@@ -597,4 +617,5 @@ class SpatialAttention(nn.Module):
         });
     </script>
 </body>
+
 </html>

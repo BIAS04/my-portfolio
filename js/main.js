@@ -21,8 +21,8 @@ class MLPortfolio {
         });
 
         // Window events
-        window.addEventListener('scroll', this.throttle(this.handleScroll.bind(this), 16));
-        window.addEventListener('resize', this.throttle(this.handleResize.bind(this), 250));
+        // window.addEventListener('scroll', this.throttle(this.handleScroll.bind(this), 16));
+        // window.addEventListener('resize', this.throttle(this.handleResize.bind(this), 250));
     }
 
     setupThemeToggle() {
