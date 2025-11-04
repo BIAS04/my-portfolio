@@ -1,39 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Image Analysis - Mayank Singh Parihar ML Portfolio</title>
-    <meta name="description"
-        content="Deep learning system for automated detection of lung abnormalities in chest X-rays with 94.2% accuracy.">
-
+    <title>Medical Insurance Charge Predictor - Mayank Singh Parihar ML Portfolio</title>
+    <meta name="description" content="Deep learning system for automated detection of lung abnormalities in chest X-rays with 94.2% accuracy.">
+    
     <!-- Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
     <!-- Prism.js for syntax highlighting -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
-
+    
     <!-- Chart.js for interactive charts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/components.css">
     <link rel="stylesheet" href="../css/responsive.css">
-
+    
     <style>
         .project-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://www.shutterstock.com/image-vector/digital-health-insurance-online-healthcare-260nw-2531564999.jpg31467333.jpg');
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('');
             background-size: cover;
             background-position: center;
             color: white;
             padding: calc(var(--header-height) + var(--space-16)) 0 var(--space-16);
             text-align: center;
         }
-
+        
         .code-block {
             background: var(--gray-900);
             border-radius: var(--radius-lg);
@@ -42,7 +38,7 @@
             position: relative;
             overflow-x: auto;
         }
-
+        
         .code-header {
             display: flex;
             justify-content: space-between;
@@ -51,7 +47,7 @@
             padding-bottom: var(--space-3);
             border-bottom: 1px solid var(--gray-700);
         }
-
+        
         .copy-btn {
             background: var(--primary-color);
             color: white;
@@ -62,22 +58,22 @@
             font-size: var(--text-sm);
             transition: all var(--transition-fast);
         }
-
+        
         .copy-btn:hover {
             background: var(--primary-dark);
         }
-
+        
         .copy-btn.copied {
             background: var(--success-color);
         }
-
+        
         .metrics-dashboard {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: var(--space-6);
             margin: var(--space-8) 0;
         }
-
+        
         .metric-card {
             background: var(--white);
             padding: var(--space-6);
@@ -86,7 +82,7 @@
             text-align: center;
             border: 1px solid var(--gray-200);
         }
-
+        
         .metric-value {
             font-size: var(--text-3xl);
             font-weight: 700;
@@ -94,12 +90,12 @@
             display: block;
             margin-bottom: var(--space-2);
         }
-
+        
         .metric-label {
             color: var(--gray-600);
             font-weight: 500;
         }
-
+        
         .chart-container {
             background: var(--white);
             padding: var(--space-6);
@@ -108,12 +104,12 @@
             margin: var(--space-8) 0;
             border: 1px solid var(--gray-200);
         }
-
+        
         .related-projects {
             background: var(--gray-50);
             padding: var(--space-16) 0;
         }
-
+        
         .project-links {
             display: flex;
             gap: var(--space-4);
@@ -122,7 +118,6 @@
         }
     </style>
 </head>
-
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
@@ -161,18 +156,17 @@
     <section class="project-hero">
         <div class="container">
             <div class="project-category">Machine Learning </div>
-            <h1 class="project-title"><b>Medical Insurance Charge Predictor</b></h1>
+            <h1 class="project-title">Medical Insurance Charge Predictor</h1>
             <p class="project-subtitle">
                 Predicting Medical Insurance Charge Based on Age, BMI, and Smoker Statusus risk analysis.
             </p>
-            <div class="project-links">
-                <a href="https://github.com/BIAS04/Medical-Insurance-Charge-Predictor-App" target="_blank"
-                    rel="noopener" class="btn btn-primary">
-                    View on GitHub
-                </a>
-                <a href="https://medical-insurance-charge-predictor-app.streamlit.app/" target="_blank" rel="noopener"
-                    class="btn btn-secondary">
-                    Live Demo
+            <a href="https://github.com/BIAS04/Medical-Insurance-Charge-Predictor-App" target="_blank"
+rel="noopener" class="btn btn-primary">
+View on GitHub
+</a>
+<a href="https://medical-insurance-charge-predictor-app.streamlit.app/" target="_blank" rel="noopener"
+class="btn btn-secondary">
+Live Demo
                 </a>
             </div>
         </div>
@@ -184,27 +178,27 @@
             <h2 class="section-title">Executive Summary</h2>
             <div class="content-grid">
                 <div class="content-main">
-                    <p>
-                        This project demonstrates the development of a machine learning system to predict individual
-                        medical insurance costs. The primary goal is to provide a reliable, data-driven tool for
-                        estimating healthcare expenses, offering significant value to both insurance providers for
-                        premium calculation and individuals for financial planning.ascular health profile.
-                        <br>
-                        A <b>Linear Regression model </b> was developed and trained on a dataset containing key
-                        demographic and health attributes, including age, Body Mass Index (BMI), and smoking status.
-                        These factors were identified as the most significant drivers of medical costs.
-                    </p>
-                    <p>
-                        The model performs strongly, achieving an <b>Adjusted R-squared of 80%</b>. This indicates that
-                        the model successfully explains 80% of the variance in insurance charges, proving it to be a
-                        robust and effective predictive tool. The high Adjusted $R^2$ value confirms that the selected
-                        features have a strong, relevant relationship to the costs, without being unnecessarily
-                        complex.ed decisions promptly.
-                        <br>
-                        This tool is designed to automate and refine premium estimations, though it is intended for
-                        informational purposes. Actual charges will vary, and this predictor is not a substitute for
-                        professional medical or financial advice.
-                    </p>
+<p>
+This project demonstrates the development of a machine learning system to predict individual
+medical insurance costs. The primary goal is to provide a reliable, data-driven tool for
+estimating healthcare expenses, offering significant value to both insurance providers for
+premium calculation and individuals for financial planning.ascular health profile.
+<br>
+A <b>Linear Regression model </b> was developed and trained on a dataset containing key
+demographic and health attributes, including age, Body Mass Index (BMI), and smoking status.
+These factors were identified as the most significant drivers of medical costs.
+</p>
+<p>
+The model performs strongly, achieving an <b>Adjusted R-squared of 80%</b>. This indicates that
+the model successfully explains 80% of the variance in insurance charges, proving it to be a
+robust and effective predictive tool. The high Adjusted $R^2$ value confirms that the selected
+features have a strong, relevant relationship to the costs, without being unnecessarily
+complex.ed decisions promptly.
+<br>
+This tool is designed to automate and refine premium estimations, though it is intended for
+informational purposes. Actual charges will vary, and this predictor is not a substitute for
+professional medical or financial advice.
+</p>
                 </div>
                 <div class="content-sidebar">
                     <div class="tech-stack">
@@ -231,24 +225,16 @@
             <h2 class="section-title">Problem Statement & Business Context</h2>
             <div class="problem-content">
                 <p>
-                    This project tackles the critical delay in heart disease screening by providing an instant,
-                    AI-powered risk assessment. It closes the gap between public health needs and accessible digital
-                    tools, empowering users to proactively manage their health and enabling more efficient healthcare
-                    triage.
+                    This project tackles the critical delay in heart disease screening by providing an instant, AI-powered risk assessment. It closes the gap between public health needs and accessible digital tools, empowering users to proactively manage their health and enabling more efficient healthcare triage.
                 </p>
                 <ul>
-                    <li><strong>Reduces Screening Time:</strong> Provides an instant risk analysis, eliminating
-                        traditional wait times.</li>
-                    <li><strong>Increases Accessibility::</strong> Offers a free, on-demand tool for immediate
-                        preliminary screening.</li>
-                    <li><strong>Encourages Proactive Health:</strong> Empowers users with early insights before symptoms
-                        arise.</li>
-                    <li><strong>Improves Triage:</strong> Helps prioritize healthcare resources toward high-risk
-                        individuals.</li>
+                    <li><strong>Reduces Screening Time:</strong> Provides an instant risk analysis, eliminating traditional wait times.</li>
+                    <li><strong>Increases Accessibility::</strong> Offers a free, on-demand tool for immediate preliminary screening.</li>
+                    <li><strong>Encourages Proactive Health:</strong> Empowers users with early insights before symptoms arise.</li>
+                    <li><strong>Improves Triage:</strong> Helps prioritize healthcare resources toward high-risk individuals.</li>
                 </ul>
                 <p>
-                    This app serves to augment, not replace, a formal diagnosis. It offers an instant, preliminary
-                    screening that highlights potential risk, empowering users to seek professional medical review.
+                    This app serves to augment, not replace, a formal diagnosis. It offers an instant, preliminary screening that highlights potential risk, empowering users to seek professional medical review.
                 </p>
             </div>
         </div>
@@ -294,7 +280,7 @@
     </section>
 
     <!-- Methodology -->
-    <!--
+     <!--
     <section class="section">
         <div class="container">
             <h2 class="section-title">Model Architecture & Methodology</h2>
@@ -328,8 +314,8 @@
                 </ul>
             </div>
         -->
-    <!-- Code Snippet -->
-    <!-- <div class="code-block">
+            <!-- Code Snippet -->
+            <!-- <div class="code-block">
                 <div class="code-header">
                     <span class="code-title">model_architecture.py</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
@@ -412,8 +398,8 @@ class SpatialAttention(nn.Module):
         <div class="container">
             <h2 class="section-title">Results & Performance Metrics</h2>
         -->
-    <!-- Key Metrics -->
-    <!-- <div class="metrics-dashboard">
+            <!-- Key Metrics -->
+            <!-- <div class="metrics-dashboard">
                 <div class="metric-card">
                     <span class="metric-value">94.2%</span>
                     <span class="metric-label">Overall Accuracy</span>
@@ -432,14 +418,14 @@ class SpatialAttention(nn.Module):
                 </div>
             </div> -->
 
-    <!-- Performance Chart -->
-    <!-- <div class="chart-container">
+            <!-- Performance Chart -->
+            <!-- <div class="chart-container">
                 <h3>Performance by Pathology Class</h3>
                 <canvas id="performanceChart" width="400" height="200"></canvas>
             </div> -->
 
-    <!-- Training Code -->
-    <!-- <div class="code-block">
+            <!-- Training Code -->
+            <!-- <div class="code-block">
                 <div class="code-header">
                     <span class="code-title">training_loop.py</span>
                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
@@ -545,8 +531,7 @@ class SpatialAttention(nn.Module):
             <div class="footer-content">
                 <div class="footer-section">
                     <h3><span style="color:  hsl(220, 90%, 56%);;"> मयंक </span>सिंह परिहार</h3>
-                    <p>Machine Learning Engineer passionate about building intelligent systems that solve real-world
-                        problems.</p>
+                    <p>Machine Learning Engineer passionate about building intelligent systems that solve real-world problems.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
@@ -560,8 +545,7 @@ class SpatialAttention(nn.Module):
                     <h4>Connect</h4>
                     <div class="social-links">
                         <a href="https://github.com/BIAS04" target="_blank" rel="noopener">GitHub</a>
-                        <a href="https://www.linkedin.com/in/mayank-singh-parihar-192168271/" target="_blank"
-                            rel="noopener">LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/mayank-singh-parihar-192168271/" target="_blank" rel="noopener">LinkedIn</a>
                         <a href="officialmayankparihar0@gmail.com">Email</a>
                     </div>
                 </div>
@@ -574,17 +558,16 @@ class SpatialAttention(nn.Module):
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-    <script src="../js/pmain.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../js/main.js"></script>
     <script src="../js/animations.js"></script>
-
+    
     <script>
         // Copy code functionality
         function copyCode(button) {
             const codeBlock = button.parentElement.nextElementSibling.querySelector('code');
             const text = codeBlock.textContent;
-
+            
             navigator.clipboard.writeText(text).then(() => {
                 button.textContent = 'Copied!';
                 button.classList.add('copied');
@@ -594,7 +577,7 @@ class SpatialAttention(nn.Module):
                 }, 2000);
             });
         }
-
+        
         // Initialize performance chart
         document.addEventListener('DOMContentLoaded', () => {
             const ctx = document.getElementById('performanceChart').getContext('2d');
@@ -628,5 +611,4 @@ class SpatialAttention(nn.Module):
         });
     </script>
 </body>
-
 </html>
