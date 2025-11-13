@@ -34,7 +34,7 @@ class ProjectsManager {
                 githubUrl: 'https://github.com/BIAS04/heart-risk-app',
                 demoUrl: 'https://heart-risk-app-haafbaq4fzzhccp6uaftul.streamlit.app/'
             },
-            
+
             {
                 id: 'Medical_Insurance_Charge_Predictor',
                 title: 'Medical Insurance Charge Predictor',
@@ -66,20 +66,21 @@ class ProjectsManager {
                 githubUrl: 'https://github.com/BIAS04/College_Placment__Analysis_ML_MODEL',
 
             },
-            // {
-            //     id: 'object-detection',
-            //     title: 'Real-time Object Detection',
-            //     description: 'YOLO-based system for real-time object detection in video streams, optimized for edge deployment with 30+ FPS performance.',
-            //     category: 'computer-vision',
-            //     technologies: ['yolo', 'opencv', 'tensorrt', 'python'],
-            //     image: 'https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=800',
-            //     metrics: [
-            //         { name: 'FPS', value: '35' },
-            //         { name: 'mAP', value: '89.2%' }
-            //     ],
-            //     featured: false,
-            //     githubUrl: 'https://github.com/alexchen/object-detection'
-            // },
+            {
+                id: 'Breast_cancer_predict',
+                title: 'Breast Cancer Diagnosis Predictor',
+                description: 'Breast Cancer Diagnosis Predictor: An end-to-end ML app that classifies breast tumors as malignant or benign with 97.6% accuracy.eractive web app.',
+                category: 'Machine Learning',
+                technologies: ['Pyton', 'Pandas', 'Numpy', 'Matplotlib', 'Seaborn', 'Scikit-learn', 'Streamlit'],
+                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP4gxpXKthjHOILbpOZma0ha_kgDGRYCFlGg&s',
+                metrics: [
+                    { name: 'Model', value: 'Logistic Regression' },
+                    { name: 'Accuracy', value: '97.6%' }
+                ],
+                featured: false,
+                demoUrl: 'https://breastcancerbymayabkparihar.streamlit.app/',
+                githubUrl: 'https://github.com/BIAS04/Breast_Cancer_ML'
+            },
             // {
             //     id: 'chatbot',
             //     title: 'Intelligent Customer Service Bot',
@@ -131,7 +132,7 @@ class ProjectsManager {
                 // Update active button
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 e.target.classList.add('active');
-                
+
                 // Update filter
                 this.currentFilters.category = e.target.dataset.filter;
                 this.filterProjects();
@@ -182,7 +183,7 @@ class ProjectsManager {
     renderProjects() {
         const projectsGrid = document.getElementById('projects-grid');
         const noResults = document.getElementById('no-results');
-        
+
         if (!projectsGrid) return;
 
         if (this.filteredProjects.length === 0) {
@@ -193,7 +194,7 @@ class ProjectsManager {
 
         if (noResults) noResults.style.display = 'none';
 
-        projectsGrid.innerHTML = this.filteredProjects.map(project => 
+        projectsGrid.innerHTML = this.filteredProjects.map(project =>
             this.createProjectCard(project)
         ).join('');
 
@@ -211,11 +212,11 @@ class ProjectsManager {
     }
 
     createProjectCard(project) {
-        const techTags = project.technologies.map(tech => 
+        const techTags = project.technologies.map(tech =>
             `<span class="tech-tag">${this.formatTechName(tech)}</span>`
         ).join('');
 
-        const metrics = project.metrics.map(metric => 
+        const metrics = project.metrics.map(metric =>
             `<div class="metric">
                 <span class="metric-value">${metric.value}</span>
                 <span class="metric-label">${metric.name}</span>
