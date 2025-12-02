@@ -30,6 +30,14 @@ function scrollToSection(sectionId) {
     }
 }
 
+// Scroll to Top
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
 // Header Scroll Effect
 function initHeaderScroll() {
     const header = document.querySelector('.header');

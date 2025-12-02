@@ -46,7 +46,7 @@ class ProjectsManager {
                     { name: 'Adj R2', value: '80%' },
                     // { name: 'Latency', value: '45ms' }
                 ],
-                featured: true,
+                featured: true, 
                 githubUrl: 'https://github.com/BIAS04/Medical-Insurance-Charge-Predictor-App',
                 demoUrl: 'https://medical-insurance-charge-predictor-app.streamlit.app/'
             },
@@ -77,25 +77,25 @@ class ProjectsManager {
                     { name: 'Model', value: 'Logistic Regression' },
                     { name: 'Accuracy', value: '97.6%' }
                 ],
-                featured: false,
+                featured: true,
                 demoUrl: 'https://breastcancerbymayabkparihar.streamlit.app/',
                 githubUrl: 'https://github.com/BIAS04/Breast_Cancer_ML'
             },
-            // {
-            //     id: 'chatbot',
-            //     title: 'Intelligent Customer Service Bot',
-            //     description: 'GPT-based conversational AI for customer service automation with context awareness and multi-turn dialogue capabilities.',
-            //     category: 'nlp',
-            //     technologies: ['gpt', 'transformers', 'fastapi', 'redis'],
-            //     image: 'https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=800',
-            //     metrics: [
-            //         { name: 'Satisfaction', value: '92%' },
-            //         { name: 'Resolution Rate', value: '85%' }
-            //     ],
-            //     featured: false,
-            //     githubUrl: 'https://github.com/alexchen/chatbot',
-            //     demoUrl: 'https://chatbot-demo.example.com'
-            // },
+            {
+                id: 'NLP_BASED_COMMENT_SENTIMENT',
+                title: 'Analyzing Viral Sentiment: A MrBeast NLP Project',
+                description: 'Full-stack NLP solution analyzing MrBeast YouTube comment sentiment using FastAPI, Scikit-Learn, and a modern macOS-style web interface.',
+                category: 'nlp',
+                technologies: ['Python', 'Scikit-learn', 'fastapi', 'pandas'],
+                image: 'https://www.cision.com/content/dam/cision-revamp/cision-optimized/resources/articles/thumbnails/what-is-sentinent-analysis-thumbnail.png',
+                metrics: [
+                    { name: 'LR_MODLE', value: '95.90%' },
+                    { name: 'NB_MODEL', value: '90.91%' }
+                ],
+                featured: false,
+                githubUrl: 'https://github.com/BIAS04/MRBEAST-Comment_Sentiment-Through-Fastapi',
+                demoUrl: 'https://mrbeast-comment-sentiments.netlify.app/'
+            },
             // {
             //     id: 'recommendation-system',
             //     title: 'Personalized Recommendation Engine',
